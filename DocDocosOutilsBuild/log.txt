@@ -1,4 +1,4 @@
-La génération a démarré 2018-12-30 14:16:14.
+La génération a démarré 2018-12-30 17:04:38.
 Projet "D:\DevCenter\Sources\DocDocos\DocDocosOutilsBuild\DocDocos01.xml" sur le nœud 1 (cibles par défaut).
 extrairesources:
   Copie du fichier de "d:\Devcenter\sources\DocDocos\DocDocos\DocDocosDA.cs" vers "D:\DevCenter\build\TempBuild\\sources\DocDocos\DocDocosDA.cs".
@@ -20,7 +20,7 @@ Temps écoulé 00:00:00.09
 Microsoft (R) Build Engine version 15.5.180.51428 pour .NET Framework
 Copyright (C) Microsoft Corporation. Tous droits réservés.
 
-La génération a démarré 2018-12-30 14:16:14.
+La génération a démarré 2018-12-30 17:04:38.
 Projet "D:\DevCenter\Sources\DocDocos\DocDocosOutilsBuild\DocDocos02.xml" sur le nœud 1 (cibles par défaut).
 main:
    Compilation .net 4.5
@@ -28,6 +28,8 @@ main:
   Création du répertoire "d:\Devcenter\build\TempBuild\bin\DocDocos\0.1.1\".
   Le répertoire "d:\Devcenter\build\TempBuild\bin\DocDocos\0.1.1\lib\net45\" n'existe pas. Opération ignorée.
   Création du répertoire "d:\Devcenter\build\TempBuild\bin\DocDocos\0.1.1\lib\net45\".
+  Le répertoire "d:\Devcenter\build\TempBuild\bin\DocDocos\0.1.1\content\" n'existe pas. Opération ignorée.
+  Création du répertoire "d:\Devcenter\build\TempBuild\bin\DocDocos\0.1.1\content\".
   C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\Roslyn\csc.exe /doc:d:\Devcenter\build\TempBuild\bin\DocDocos\0.1.1\DocDocos.xml /debug- /out:d:\Devcenter\build\TempBuild\bin\DocDocos\0.1.1\lib\net45\DocDocos.dll /target:library D:\DevCenter\build\TempBuild\Sources\DocDocos\DocDocosDA.cs D:\DevCenter\build\TempBuild\Sources\DocDocos\DocMiniCore.cs D:\DevCenter\build\TempBuild\Sources\DocDocos\EntiteDocument.cs D:\DevCenter\build\TempBuild\Sources\DocDocos\HTMLHelper.cs D:\DevCenter\build\TempBuild\Sources\DocDocos\IO.cs D:\DevCenter\build\TempBuild\Sources\DocDocos\Str.cs D:\DevCenter\build\TempBuild\Sources\DocDocos\TypeEntiteDocument.cs
 D:\DevCenter\build\TempBuild\Sources\DocDocos\IO.cs(44,13): warning CS0162: Impossible d'atteindre le code détecté [D:\DevCenter\Sources\DocDocos\DocDocosOutilsBuild\DocDocos02.xml]
 D:\DevCenter\build\TempBuild\Sources\DocDocos\DocDocosDA.cs(263,20): warning CS0168: La variable 'Debug' est déclarée, mais jamais utilisée [D:\DevCenter\Sources\DocDocos\DocDocosOutilsBuild\DocDocos02.xml]
@@ -68,6 +70,8 @@ D:\DevCenter\build\TempBuild\Sources\DocDocos\TypeEntiteDocument.cs(9,9): warnin
 D:\DevCenter\build\TempBuild\Sources\DocDocos\TypeEntiteDocument.cs(10,9): warning CS1591: Commentaire XML manquant pour le type ou le membre visible publiquement 'TypeEntiteDocument.Classe' [D:\DevCenter\Sources\DocDocos\DocDocosOutilsBuild\DocDocos02.xml]
 D:\DevCenter\build\TempBuild\Sources\DocDocos\TypeEntiteDocument.cs(11,9): warning CS1591: Commentaire XML manquant pour le type ou le membre visible publiquement 'TypeEntiteDocument.Propriete' [D:\DevCenter\Sources\DocDocos\DocDocosOutilsBuild\DocDocos02.xml]
 D:\DevCenter\build\TempBuild\Sources\DocDocos\DocDocosDA.cs(1,1): warning CS1587: Le commentaire XML n'est pas placé dans un élément valide du langage [D:\DevCenter\Sources\DocDocos\DocDocosOutilsBuild\DocDocos02.xml]
+  Copie du fichier de "D:\DevCenter\build\TempBuild\Sources\DocDocos\DocDocos-gabarit.html" vers "d:\Devcenter\build\TempBuild\bin\DocDocos\0.1.1\content\DocDocos-gabarit.html".
+  Copie du fichier de "D:\DevCenter\build\TempBuild\Sources\DocDocos\DocDocos-License.txt" vers "d:\Devcenter\build\TempBuild\bin\DocDocos\0.1.1\content\DocDocos-License.txt".
 Génération du projet "D:\DevCenter\Sources\DocDocos\DocDocosOutilsBuild\DocDocos02.xml" terminée (cibles par défaut).
 
 La génération a réussi.
@@ -122,6 +126,4 @@ D:\DevCenter\Sources\DocDocos\DocDocosOutilsBuild\DocDocos.nuspec
 1 fichier(s) copi�(s)
 D:\DevCenter\Sources\DocDocos\DocDocosOutilsBuild\DocDocosNconfig.xml
 1 fichier(s) copi�(s)
-Tentative de création du package depuis 'DocDocos.nuspec'.
-Successfully created package 'D:\DevCenter\Nuget\MaGallerie\org.jcassertion.DocDocos.0.1.0.nupkg'.
 Fichier de command fini sans erreur 

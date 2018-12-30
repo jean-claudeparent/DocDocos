@@ -42,6 +42,7 @@
       <VersionLogiciel>0.1.1</VersionLogiciel>
       <NugetRoot>d:\Devcenter\build\TempBuild\bin\$(Logiciel)\$(VersionLogiciel)\</NugetRoot>
       <OutputPath>d:\Devcenter\build\TempBuild\bin\$(Logiciel)\$(VersionLogiciel)\lib\$(NugetFramework)</OutputPath>
+      <OutputPathContent>d:\Devcenter\build\TempBuild\bin\$(Logiciel)\$(VersionLogiciel)\content\</OutputPathContent>
       
 
     </PropertyGroup>
@@ -50,8 +51,8 @@
       <Compile Include="$(PrefixeSource)$(Logiciel)\**\*.cs" />      
     </ItemGroup>
     <ItemGroup>
-      <MesFichiersSource Include="$(PrefixeSource)$(Logiciel)\M*gab*.htm*"/>
-      <MesFichiersSource Include="$(PrefixeSource)$(Logiciel)\M*lic*.*"/>
+      <MesFichiersSource Include="$(PrefixeSource)$(Logiciel)\*gabarit*.htm*"/>
+      <MesFichiersSource Include="$(PrefixeSource)$(Logiciel)\*license*.*"/>
 
     </ItemGroup>
 
@@ -61,7 +62,9 @@
     <MakeDir  Directories="$(NugetRoot)" />
     <RemoveDir  Directories="$(OutputPath)" />
     <MakeDir  Directories="$(OutputPath)" />
-    
+     <RemoveDir  Directories="$(OutputPathContent)" />
+    <MakeDir  Directories="$(OutputPathContent)" />
+   
     <csc Sources="@(Compile)"
      EmitDebugInformation="false"
      DocumentationFile="$(NugetRoot)DocDocos.xml"
@@ -71,7 +74,7 @@
     
     <Copy
      SourceFiles="@(MesFichiersSource)"
-     DestinationFiles="@(MesFichiersSource->'$(OutputPath)%(RecursiveDir)%(Filename)%(Extension)')" />
+     DestinationFiles="@(MesFichiersSource->'$(OutputPathContent)%(RecursiveDir)%(Filename)%(Extension)')" />
 
 
   </Target>

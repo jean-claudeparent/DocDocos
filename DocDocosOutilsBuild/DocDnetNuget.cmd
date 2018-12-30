@@ -12,13 +12,14 @@ xcopy "D:\DevCenter\Sources\DocDocos\DocDocosOutilsBuild\DocDocos.nuspec" "D:\De
 if %errorlevel% NEQ 0 goto erreur
 xcopy "D:\DevCenter\Sources\DocDocos\DocDocosOutilsBuild\DocDocosNconfig.xml" "D:\DevCenter\build\TempBuild\bin\DocDocos\0.1.1\" /y >>%~dp0log.txt
 if %errorlevel% NEQ 0 goto erreur
+chcp 65001
 
 echo creer la config
-%Nugetexe% config -set verbosity=detailed -configfile "D:\DevCenter\build\TempBuild\bin\DocDocos\0.1.1\DocDocosNConfig.xml" >>%~dp0log.txt
-if %errorlevel% NEQ 0 goto erreurs
+%Nugetexe% config -set verbosity=detailed -configfile "D:\DevCenter\build\TempBuild\bin\DocDocos\0.1.1\DocDocosNConfig.xml" 2>>%~dp0log.txt
+if %errorlevel% NEQ 0 goto erreur
 
-%Nugetexe% pack "D:\DevCenter\build\TempBuild\bin\DocDocos\0.1.1\DocDocos.nuspec" -OutputDirectory "D:\DevCenter\Nuget\MaGallerie"  -configfile "D:\DevCenter\build\TempBuild\bin\DocDocos\0.1.1\DocDocosNConfig.xml" >>%~dp0log.txt
-if %errorlevel% NEQ 0 goto erreurs
+%Nugetexe% pack "D:\DevCenter\build\TempBuild\bin\DocDocos\0.1.1\DocDocos.nuspec" -OutputDirectory "D:\DevCenter\Nuget\MaGallerie"  -configfile "D:\DevCenter\build\TempBuild\bin\DocDocos\0.1.1\DocDocosNConfig.xml" 2>>%~dp0log.txt
+if %errorlevel% NEQ 0 goto erreur
 
 goto fini
 :erreurs
