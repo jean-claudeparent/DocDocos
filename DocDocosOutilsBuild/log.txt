@@ -1,4 +1,4 @@
-La génération a démarré 2018-12-30 17:04:38.
+La génération a démarré 2018-12-30 18:04:59.
 Projet "D:\DevCenter\Sources\DocDocos\DocDocosOutilsBuild\DocDocos01.xml" sur le nœud 1 (cibles par défaut).
 extrairesources:
   Copie du fichier de "d:\Devcenter\sources\DocDocos\DocDocos\DocDocosDA.cs" vers "D:\DevCenter\build\TempBuild\\sources\DocDocos\DocDocosDA.cs".
@@ -16,11 +16,322 @@ La génération a réussi.
     0 Avertissement(s)
     0 Erreur(s)
 
-Temps écoulé 00:00:00.09
+Temps écoulé 00:00:00.10
 Microsoft (R) Build Engine version 15.5.180.51428 pour .NET Framework
 Copyright (C) Microsoft Corporation. Tous droits réservés.
 
-La génération a démarré 2018-12-30 17:04:38.
+Syntaxe :              MSBuild.exe [options] [fichier projet | répertoire]
+
+Description :         Génère les cibles spécifiées dans le fichier projet. Si
+                     aucun fichier projet n'est spécifié, MSBuild recherche dans le
+                     répertoire de travail actuel un fichier dont
+                     l'extension se termine par « proj » et utilise ce dernier. Si
+                     un répertoire est spécifié, MSBuild recherche dans ce
+                     répertoire un fichier projet.
+
+Commutateurs :
+
+  /target:<cibles>  Générer ces cibles dans ce projet. Utilisez un point-virgule ou une
+                     virgule pour séparer plusieurs cibles, ou spécifiez chaque
+                     cible séparément. (Forme abrégée : /t)
+                     Exemple :
+                       /target:Resources;Compile
+
+  /property:<n>=<v>  Définir ou remplacer ces propriétés au niveau du projet. <n> est
+                     le nom de la propriété et <v>, la valeur de la propriété. Utilisez un
+                     point-virgule ou une virgule pour séparer plusieurs propriétés, ou
+                     spécifiez chacune d'elles séparément. (Forme abrégée : /p)
+                     Exemple :
+                       /property:WarningLevel=2;OutDir=bin\Debug\
+
+  /maxcpucount[:n]   Spécifie le nombre maximal de processus
+                     de génération simultanés. Si le commutateur n'est pas utilisé, la valeur
+                     par défaut est 1. Si le commutateur est utilisé sans valeur
+                     MSBuild peut utiliser tous les processeurs de
+                     l'ordinateur. (Forme abrégée : /m[:n])
+      
+  /toolsversion:<version>
+                     Version de l'ensemble d'outils MSBuild (tâches, cibles, etc.)
+                     à utiliser durant la génération. Cette version remplace les
+                     versions spécifiées par chacun des projets. (Forme abrégée :
+                     /tv)
+                     Exemple :
+                       /toolsversion:3.5
+   
+  /verbosity:<niveau> Afficher ce niveau de données dans le journal des événements.
+                     Niveaux de commentaires disponibles : q[uiet], m[inimal],
+                     n[ormal], d[etailed] et diag[nostic]. (Forme abrégée : /v)
+                     Exemple :
+                       /verbosity:quiet
+
+  /consoleloggerparameters:<paramètres>
+                     Paramètres de l'enregistreur d'événements de la console. (Forme abrégée : /clp)
+                     Paramètres disponibles :
+                        PerformanceSummary--Afficher la durée des tâches, des cibles
+                            et des projets.
+                        Summary--Afficher un récapitulatif des erreurs et des avertissements à la fin.
+                        NoSummary--Ne pas afficher de récapitulatif des erreurs et des avertissements à la
+                            fin.
+                        ErrorsOnly--Afficher uniquement les erreurs.
+                        WarningsOnly--Afficher uniquement les avertissements.
+                        NoItemAndPropertyList--Ne pas afficher la liste des éléments et
+                            des propriétés au début de chaque génération de projet.
+                        ShowCommandLine--Afficher les messages de TaskCommandLineEvent
+                        ShowTimestamp--Afficher l'horodatage en tant que préfixe des
+                            messages.
+                        ShowEventId--Afficher eventId pour les événements démarrés et
+                            achevés, ainsi que les messages
+                        ForceNoAlign--Ne pas aligner le texte par rapport à la taille de la
+                            mémoire tampon de la console
+                        DisableConsoleColor--Utiliser les couleurs de la console par défaut
+                            pour tous les messages de journalisation.
+                        DisableMPLogging--Désactiver le style de journalisation multiprocesseur
+                            de la sortie durant l'exécution en
+                            mode non multiprocesseur.
+                        EnableMPLogging--Activer le style de journalisation multiprocesseur
+                            même durant l'exécution en mode non
+                            multiprocesseur. Ce style de journalisation est activé par défaut.
+                        ForceConsoleColor--Utiliser les couleurs de la console ANSI même si
+                            cela n'est pas pris en charge par la console
+                        Verbosity--remplace le paramètre /verbosity pour cet
+                            enregistreur d'événements.
+                     Exemple :
+                        /consoleloggerparameters:PerformanceSummary;NoSummary;
+                                                 Verbosity=minimal
+
+  /noconsolelogger   Désactiver le journal de console par défaut et ne pas
+                     consigner d'événements dans la console. (Forme abrégée : /noconlog)
+
+  /fileLogger[n]     Enregistre la sortie de build dans un fichier. Par défaut,
+                     le fichier se trouve dans le répertoire actif et se nomme
+                     "msbuild[n].log". Les événements de tous les nœuds sont regroupés
+                     dans un même journal. Vous pouvez spécifier l'emplacement du fichier et d'autres
+                     paramètres pour fileLogger en ajoutant
+                     le commutateur "/fileLoggerParameters[n]".
+                     S'il est spécifié, "n" doit être un chiffre entre 1 et 9,
+                     ce qui permet d'attacher jusqu'à 10 enregistreurs d'événements vers des fichiers. (Forme abrégée : /fl[n])
+    
+  /fileloggerparameters[n]:<paramètres>
+                     Paramètres supplémentaires pour les enregistreurs d'événements vers des fichiers.
+                     La présence de ce commutateur implique l'utilisation du
+                     commutateur /filelogger[n] correspondant.
+                     S'il est spécifié, "n" doit être un chiffre entre 1 et 9.
+                     /fileloggerparameters est également utilisé par tous les
+                     enregistreurs d'événements vers des fichiers. Consultez la description de /distributedFileLogger.
+                     (Forme abrégée : /flp[n])
+                     Les mêmes paramètres que ceux répertoriés pour l'enregistreur d'événements de la console sont
+                     disponibles. Paramètres supplémentaires disponibles :
+                        LogFile--Chemin du fichier journal dans lequel
+                            le journal de génération est écrit.
+                        Append--Détermine si le journal de génération est ajouté
+                            au fichier journal ou s'il le remplace. Si vous utilisez le
+                            commutateur, le journal de génération est ajouté au fichier journal.
+                            Sinon, le contenu du fichier journal
+                            existant est remplacé.
+                            Par défaut, le fichier journal est remplacé.
+                        Encoding--Spécifie l'encodage du fichier,
+                            par exemple, UTF-8, Unicode ou ASCII
+                     Le niveau de commentaires par défaut est Detailed.
+                     Exemples :
+                       /fileLoggerParameters:LogFile=MyLog.log;Append;
+                                           Verbosity=diagnostic;Encoding=UTF-8
+
+                       /flp:Summary;Verbosity=minimal;LogFile=msbuild.sum
+                       /flp1:warningsonly;logfile=msbuild.wrn
+                       /flp2:errorsonly;logfile=msbuild.err
+    
+  /distributedlogger:<enregistreur d'événements central>*<enregistreur d'événements de transfert>
+                     Utilisez cet enregistreur d'événements pour consigner les événements de MSBuild, en attachant
+                     une instance d'enregistreur d'événements différente à chaque nœud. Pour indiquer
+                     plusieurs enregistreurs d'événements, spécifiez chacun d'eux séparément.
+                     (Forme abrégée : /dl)
+                     Syntaxe de <enregistreur d'événements> :
+                       [<classe de journalisation>,]<assembly de journalisation>[;<paramètres de journalisation>]
+                     Syntaxe de <classe de journalisation> :
+                       [<espace de noms partiels ou complets>.]<nom de la classe de journalisation>
+                     Syntaxe de <assembly de journalisation> :
+                       {<nom de l'assembly>[,<nom fort] | <fichier d'assembly>}
+                     Les <paramètres de journalisation> sont facultatifs. Ils sont passés
+                     à l'enregistreur d'événements tels que vous les avez tapés. (Forme abrégée : /l)
+                     Exemples :
+                       /dl:XMLLogger,MyLogger,Version=1.0.2,Culture=neutral
+                       /dl:MyLogger,C:\My.dll*ForwardingLogger,C:\Logger.dll
+
+  /distributedFileLogger
+                     Enregistre la sortie de build dans plusieurs fichiers journaux, à raison
+                     d'un fichier journal par nœud MSBuild. L'emplacement initial de ces fichiers est
+                     le répertoire actif. Par défaut, les fichiers sont nommés
+                     "MSBuild<idnœud>.log". Vous pouvez spécifier l'emplacement des fichiers et
+                     d'autres paramètres pour fileLogger
+                     en ajoutant le commutateur "/fileLoggerParameters".
+
+                     Si un nom de fichier journal est défini via le commutateur fileLoggerParameters
+                     l'enregistreur d'événements distribué utilise fileName comme
+                     modèle et lui ajoute l'ID du nœud afin de
+                     créer un fichier journal pour chaque nœud.
+    
+  /logger:<journal>   Consigner les événements de MSBuild dans ce journal. Pour indiquer
+                     plusieurs journaux, spécifiez chacun d'eux séparément.
+                     Syntaxe de l'entrée <journal> :
+                       [<classe de journalisation>,]<assembly de journalisation>[;<paramètres de journalisation>]
+                     Syntaxe de l'entrée <classe de journalisation> :
+                       [<espace de noms partiels ou complets>.]<nom de la classe de journalisation>
+                     Syntaxe de l'entrée <assembly de journalisation> :
+                       {<nom de l'assembly>[,<nom fort] | <fichier d'assembly>}
+                     Les <paramètres de journalisation> sont facultatifs. Ils sont passés
+                     au journal tels que vous les avez tapés. (Forme abrégée : /l)
+                     Exemples :
+                       /logger:XMLLogger,MyLogger,Version=1.0.2,Culture=neutral
+                       /logger:XMLLogger,C:\Loggers\MyLogger.dll;OutputAsHTML
+
+  /binaryLogger[:[LogFile=]output.binlog[;ProjectImports={None,Embed,ZipFile}]]
+                     Sérialise tous les événements de build dans un fichier binaire compressé.
+                     Par défaut, le fichier se trouve dans le répertoire actif et se nomme
+                     "msbuild.binlog". Le journal binaire est une description détaillée
+                     du processus de génération, qui peut servir plus tard à reconstruire
+                     les journaux texte et être utilisé par d'autres outils d'analyse. Un journal binaire
+                     est généralement 10 à 20 fois plus petit que le journal
+                     de diagnostic de type texte le plus détaillé, mais il contient plus d'informations.
+                     (Forme abrégée : /bl)
+
+                     L'enregistreur d'événements binaire par défaut collecte le texte source
+                     des fichiers projet, notamment tous les projets importés et les
+                     fichiers cibles rencontrés pendant la build. Le commutateur
+                     ProjectImports facultatif contrôle ce comportement :
+
+                      ProjectImports=None     - Ne collecte pas les importations
+                                                du projet.
+                      ProjectImports=Embed    - Incorpore les importations du projet dans
+                                                le fichier journal.
+                      ProjectImports=ZipFile  - Enregistre les fichiers projet dans
+                                                output.projectimports.zip
+                                                où la sortie porte le même nom que
+                                                le fichier journal binaire.
+
+                     Le paramètre par défaut de ProjectImports est Embed.
+                     Remarque : L'enregistreur d'événements ne collecte pas les
+                     fichiers sources non MSBuild tels que .cs, .cpp etc.
+
+                     Vous pouvez "lire" un fichier .binlog en le passant à
+                     msbuild.exe en tant qu'argument plutôt qu'en tant que projet/solution.
+                     D'autres enregistreurs d'événements reçoivent les informations
+                     contenues dans le fichier journal comme si la build d'origine était en cours de création.
+                     Pour plus d'informations sur le journal binaire et ses usages, consultez :
+                     https://github.com/Microsoft/msbuild/wiki/Binary-Log
+
+                     Exemples :
+                       /bl
+                       /bl:output.binlog
+                       /bl:output.binlog;ProjectImports=None
+                       /bl:output.binlog;ProjectImports=ZipFile
+                       /bl:..\..\custom.binlog
+                       /binaryLogger
+    
+  /warnaserror[:code[;code2]]
+                     Liste de codes d'avertissement à traiter comme des erreurs. Utilisez
+                     un point-virgule ou une virgule pour séparer plusieurs codes
+                     d'avertissement. Pour traiter tous les avertissements comme des erreurs,
+                     utilisez le commutateur sans valeur.
+                     (Forme abrégée : /err[:c;[c2]])
+
+                     Exemple :
+                       /warnaserror:MSB4130
+
+                     Quand un avertissement est traité comme une erreur, la cible
+                     continue de s'exécuter comme un avertissement, mais la génération
+                     globale échoue.
+    
+  /warnasmessage[:code[;code2]]
+                     Liste de codes d'avertissement à traiter comme des messages
+                     d'importance faible. Utilisez un point-virgule ou une virgule pour séparer
+                     plusieurs codes d'avertissement.
+                     (Forme abrégée : /nowarn[:c;[c2]])
+
+                     Exemple :
+                       /warnasmessage:MSB3026
+    
+  /validate          Valider le projet par rapport au schéma par défaut. (Forme
+                     abrégée : /val)
+
+  /validate:<schéma> Valider le projet par rapport au schéma spécifié. (Forme
+                     abrégée : /val)
+                     Exemple :
+                       /validate:MyExtendedBuildSchema.xsd
+
+  /ignoreprojectextensions:<extensions>
+                     Liste d'extensions à ignorer au moment de la sélection
+                     du fichier projet à générer. Utilisez un point-virgule ou une virgule
+                     pour séparer plusieurs extensions.
+                     (Forme abrégée : /ignore)
+                     Exemple :
+                       /ignoreprojectextensions:.sln
+    
+  /nodeReuse:<paramètres>
+                     Active ou désactive la réutilisation des nœuds MSBuild.
+                     Paramètres :
+                     True--Les nœuds sont conservés à la fin de la génération et
+                            sont réutilisés par les générations ultérieures (valeur par défaut).
+                     False--Les nœuds ne sont pas conservés à la fin de la génération.
+                     (Forme abrégée : /nr)
+                     Exemple :
+                       /nr:true
+    
+  /preprocess[:file]
+                     Crée un seul fichier projet agrégé
+                     en incluant tous les fichiers importés durant
+                     une génération, avec leurs limites marquées. Cela
+                     permet de déterminer les fichiers à importer,
+                     leur emplacement d'origine et leur rôle dans
+                     la build. Par défaut, la sortie est écrite dans
+                     la fenêtre de console. Si le chemin d'un fichier de sortie
+                     est fourni, il est utilisé à la place.
+                     (Forme abrégée : /pp)
+                     Exemple :
+                       /pp:out.txt
+    
+  /detailedsummary
+                     À la fin de la build, affiche des informations détaillées
+                     sur les configurations générées et la façon dont elles
+                     étaient planifiées sur les nœuds.
+                     (Forme abrégée : /ds)
+    
+  /restore[:True|False]
+                     Exécute la restauration d'une cible nommée avant la génération
+                     des autres cibles. Cela s'avère utile quand votre arborescence du projet
+                     nécessite la restauration des packages pour permettre
+                     leur génération. Spécifier /restore revient à
+                     spécifier /restore:True. Utilisez le paramètre pour
+                     remplacer une valeur qui provient d'un fichier réponse.
+                     (Forme abrégée : /r)
+    
+  @<fichier>         Insérer les paramètres de ligne de commande à partir d'un fichier texte. Pour indiquer
+                     plusieurs fichiers réponse, spécifiez chacun d'eux
+                     séparément.
+
+                     Tous les fichiers réponse nommés "msbuild.rsp" sont automatiquement
+                     consommés depuis les emplacements suivants :
+                     (1) répertoire de msbuild.exe
+                     (2) répertoire de la première solution ou du premier projet généré
+
+  /noautoresponse    N'inclure aucun fichier MSBuild.rsp automatiquement. (Forme abrégée :
+                     /noautorsp)
+
+  /nologo            Ne pas afficher la bannière de démarrage ni le message de copyright.
+
+  /version           Afficher uniquement les informations sur la version. (Forme abrégée : /ver)
+
+  /help              Afficher ce message d'utilisation. (Forme abrégée : /? ou /h)
+
+Exemples :
+
+        MSBuild MyApp.sln /t:Rebuild /p:Configuration=Release
+        MSBuild MyApp.csproj /t:Clean
+                             /p:Configuration=Debug;TargetFrameworkVersion=v3.5
+    
+Microsoft (R) Build Engine version 15.5.180.51428 pour .NET Framework
+Copyright (C) Microsoft Corporation. Tous droits réservés.
+
+La génération a démarré 2018-12-30 18:05:00.
 Projet "D:\DevCenter\Sources\DocDocos\DocDocosOutilsBuild\DocDocos02.xml" sur le nœud 1 (cibles par défaut).
 main:
    Compilation .net 4.5
@@ -121,7 +432,38 @@ La génération a réussi.
     39 Avertissement(s)
     0 Erreur(s)
 
-Temps écoulé 00:00:00.67
+Temps écoulé 00:00:00.70
+build D:\DevCenter\Sources\DocDocos\DocDocos\DocDocos.csproj 
+Microsoft (R) Build Engine version 15.5.180.51428 pour .NET Framework
+Copyright (C) Microsoft Corporation. Tous droits réservés.
+
+La génération a démarré 2018-12-30 18:05:01.
+Projet "D:\DevCenter\Sources\DocDocos\DocDocos\DocDocos.csproj" sur le nœud 1 (cibles par défaut).
+GenerateTargetFrameworkMonikerAttribute:
+La cible est ignorée "GenerateTargetFrameworkMonikerAttribute", car tous les fichiers de sortie sont à jour par rapport aux fichiers d'entrée.
+CoreGenerateAssemblyInfo:
+La cible est ignorée "CoreGenerateAssemblyInfo", car tous les fichiers de sortie sont à jour par rapport aux fichiers d'entrée.
+CoreCompile:
+La cible est ignorée "CoreCompile", car tous les fichiers de sortie sont à jour par rapport aux fichiers d'entrée.
+_CopyOutOfDateSourceItemsToOutputDirectory:
+La cible est ignorée "_CopyOutOfDateSourceItemsToOutputDirectory", car tous les fichiers de sortie sont à jour par rapport aux fichiers d'entrée.
+_CopyOutOfDateSourceItemsToOutputDirectoryAlways:
+  Copie du fichier de "D:\DevCenter\Sources\DocDocos\DocDocos\DocDocos-License.txt" vers "bin\Release\netcoreapp2.1\DocDocos-License.txt".
+GenerateBuildDependencyFile:
+La cible est ignorée "GenerateBuildDependencyFile", car tous les fichiers de sortie sont à jour par rapport aux fichiers d'entrée.
+CopyFilesToOutputDirectory:
+  DocDocos -> D:\DevCenter\Sources\DocDocos\DocDocos\bin\Release\netcoreapp2.1\DocDocos.dll
+CleanupEmptyRefsFolder:
+  Le répertoire "D:\DevCenter\Sources\DocDocos\DocDocos\bin\Release\netcoreapp2.1\refs" n'existe pas. Opération ignorée.
+Génération du projet "D:\DevCenter\Sources\DocDocos\DocDocos\DocDocos.csproj" terminée (cibles par défaut).
+
+La génération a réussi.
+    0 Avertissement(s)
+    0 Erreur(s)
+
+Temps écoulé 00:00:00.40
+D:\DevCenter\Sources\DocDocos\DocDocos\bin\Release\netcoreapp2.1\DocDocos.dll
+1 fichier(s) copi�(s)
 D:\DevCenter\Sources\DocDocos\DocDocosOutilsBuild\DocDocos.nuspec
 1 fichier(s) copi�(s)
 D:\DevCenter\Sources\DocDocos\DocDocosOutilsBuild\DocDocosNconfig.xml
