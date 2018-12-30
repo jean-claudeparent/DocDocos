@@ -1,7 +1,6 @@
-La génération a démarré 2018-12-30 11:55:09.
+La génération a démarré 2018-12-30 14:16:14.
 Projet "D:\DevCenter\Sources\DocDocos\DocDocosOutilsBuild\DocDocos01.xml" sur le nœud 1 (cibles par défaut).
 extrairesources:
-  Création du répertoire "D:\DevCenter\build\TempBuild\sources\DocDocos".
   Copie du fichier de "d:\Devcenter\sources\DocDocos\DocDocos\DocDocosDA.cs" vers "D:\DevCenter\build\TempBuild\\sources\DocDocos\DocDocosDA.cs".
   Copie du fichier de "d:\Devcenter\sources\DocDocos\DocDocos\DocMiniCore.cs" vers "D:\DevCenter\build\TempBuild\\sources\DocDocos\DocMiniCore.cs".
   Copie du fichier de "d:\Devcenter\sources\DocDocos\DocDocos\EntiteDocument.cs" vers "D:\DevCenter\build\TempBuild\\sources\DocDocos\EntiteDocument.cs".
@@ -17,15 +16,15 @@ La génération a réussi.
     0 Avertissement(s)
     0 Erreur(s)
 
-Temps écoulé 00:00:00.14
+Temps écoulé 00:00:00.09
 Microsoft (R) Build Engine version 15.5.180.51428 pour .NET Framework
 Copyright (C) Microsoft Corporation. Tous droits réservés.
 
-La génération a démarré 2018-12-30 11:55:09.
+La génération a démarré 2018-12-30 14:16:14.
 Projet "D:\DevCenter\Sources\DocDocos\DocDocosOutilsBuild\DocDocos02.xml" sur le nœud 1 (cibles par défaut).
 main:
    Compilation .net 4.5
-  Le répertoire "d:\Devcenter\build\TempBuild\bin\DocDocos\0.1.1\" n'existe pas. Opération ignorée.
+  Suppression du répertoire "d:\Devcenter\build\TempBuild\bin\DocDocos\0.1.1\".
   Création du répertoire "d:\Devcenter\build\TempBuild\bin\DocDocos\0.1.1\".
   Le répertoire "d:\Devcenter\build\TempBuild\bin\DocDocos\0.1.1\lib\net45\" n'existe pas. Opération ignorée.
   Création du répertoire "d:\Devcenter\build\TempBuild\bin\DocDocos\0.1.1\lib\net45\".
@@ -118,7 +117,7 @@ La génération a réussi.
     39 Avertissement(s)
     0 Erreur(s)
 
-Temps écoulé 00:00:01.25
+Temps écoulé 00:00:00.67
 D:\DevCenter\Sources\DocDocos\DocDocosOutilsBuild\DocDocos.nuspec
 1 fichier(s) copi�(s)
 D:\DevCenter\Sources\DocDocos\DocDocosOutilsBuild\DocDocosNconfig.xml

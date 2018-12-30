@@ -1,4 +1,4 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <package >
   <metadata>
     <id>org.jcassertion.DocDocos</id>
@@ -13,5 +13,9 @@
     <releaseNotes>Pre-releaase Cette version sert juste à explorer la création de nuget</releaseNotes>
     <copyright>Copyright 2018 Jean-Claude Parent</copyright>
     <tags>Génération documentation html xml VS</tags>
+    
   </metadata>
+  <files>
+    <file src="lib\net45\**" target="lib/net45" />
+  </files>
 </package>
