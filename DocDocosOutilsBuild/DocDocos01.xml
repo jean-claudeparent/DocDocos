@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0"  DefaultTargets="main" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  
+  <PropertyGroup>
+    <PrefixeSource>D:\DevCenter\build\TempBuild\</PrefixeSource>
+    <Templates>D:\DevCenter\build\Templates\dev\</Templates>
+    <repository>d:\Devcenter\sources\</repository>
+     <Logiciel>MokaDocos</Logiciel>
+    <VersionLogiciel>0.1.1</VersionLogiciel>
+    <OutputDirectory>d:\Devcenter\build\TempBuild\bin\$(Logiciel)\$(VersionLogiciel)\lib\</OutputDirectory>
+</PropertyGroup>
+
+
+  <ItemGroup>
+    <None Remove=".DS_Store" />
+    <None Remove="MokaDocos-gabarit.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="MokaDocos-License.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="MokaDocos-gabarit.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MokaDocos-gabarit.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+
+<Target Name="main">
+  <CallTarget Targets="extrairesources" />
+</Target>
+
+<Target Name="extrairesources">
+<PropertyGroup>
+  <CodeSourceRepo>$(repository)$(Logiciel)\</CodeSourceRepo> 
+  <BuildCodeSource>$(PrefixeSource)\sources\MokaDocos</BuildCodeSource> 
+</PropertyGroup>
+<ItemGroup>
+    <MesFichiersSource Include="$(CodeSourceRepo)MokaDocos\*.cs"/>
+    <MesFichiersSource Include="$(CodeSourceRepo)MokaDocos\Utilitaires\*.cs"/>
+    <MesFichiersSource Include="$(CodeSourceRepo)MokaDocos\*.htm*"/>
+    <MesFichiersSource Include="$(CodeSourceRepo)MokaDocos\*.txt"/>
+  <MesFichiersSource Include="$(CodeSourceRepo)MokaDocosOutilsBuild\Assenbly*.cs"/>
+</ItemGroup>
+<RemoveDir  Directories="$(BuildSource)" />
+  <MakeDir  Directories="$(BuildSource)" />
+  
+<Copy
+   SourceFiles="@(MesFichiersSource)"
+   DestinationFiles="@(MesFichiersSource->'$(BuildCodeSource)\%(RecursiveDir)%(Filename)%(Extension)')" />
+</Target>
+
+</Project>

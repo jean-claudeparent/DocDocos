@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>JCUtilitaires</name>
+    </assembly>
+    <members>
+        <member name="M:JCUtilitaires.IO.AjouterCheminFichier(System.String,System.String)">
+            <summary>
+            Ajoute un autre niveau à un path
+            de fichier
+            </summary>
+            <param name="Chemin"></param>
+            <param name="Ajout"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JCUtilitaires.Str.DernierC(System.String)">
+            <summary>
+            Retourne le dernier caractère d'une chaîne
+            </summary>
+            <param name="Chaine"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

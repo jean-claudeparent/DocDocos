@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration>Release</Configuration>
+    <Platform>AnyCPU</Platform>
+    <ProjectGuid>{2C5AECAF-0155-49FB-B075-C72E719AB0CA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>MokaDocos</RootNamespace>
+    <AssemblyName>MokaDocos</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineConstants></DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\ConsoleApp1.xml</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  
+  
+  <Target Name="main">
+    <PropertyGroup>
+      <NugetFramework>net45\</NugetFramework>
+      <PrefixeSource>D:\DevCenter\build\TempBuild\Sources\</PrefixeSource>
+      <Logiciel>MokaDocos</Logiciel>
+      <VersionLogiciel>0.1.1</VersionLogiciel>
+      <NugetRoot>d:\Devcenter\build\TempBuild\bin\$(Logiciel)\$(VersionLogiciel)\</NugetRoot>
+      <OutputPath>d:\Devcenter\build\TempBuild\bin\$(Logiciel)\$(VersionLogiciel)\lib\$(NugetFramework)</OutputPath>
+      
+
+    </PropertyGroup>
+    
+    <ItemGroup>
+      <Compile Include="$(PrefixeSource)$(Logiciel)\**\*.cs" />      
+    </ItemGroup>
+    <ItemGroup>
+      <MesFichiersSource Include="$(PrefixeSource)$(Logiciel)\M*gab*.htm*"/>
+      <MesFichiersSource Include="$(PrefixeSource)$(Logiciel)\M*lic*.*"/>
+
+    </ItemGroup>
+
+
+    <Message Text=" Compilation .net 4.5" />
+    <RemoveDir  Directories="$(NugetRoot)" />
+    <MakeDir  Directories="$(NugetRoot)" />
+    <RemoveDir  Directories="$(OutputPath)" />
+    <MakeDir  Directories="$(OutputPath)" />
+    
+    <csc Sources="@(Compile)"
+     EmitDebugInformation="false"
+     DocumentationFile="$(NugetRoot)MokaDocos.xml"
+     OutputAssembly="$(OutputPath)MokaDocos.dll"
+         TargetType="Library"/>
+   
+    
+    <Copy
+     SourceFiles="@(MesFichiersSource)"
+     DestinationFiles="@(MesFichiersSource->'$(OutputPath)%(RecursiveDir)%(Filename)%(Extension)')" />
+
+
+  </Target>
+
+</Project>
