@@ -30,5 +30,18 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DocDnetNuget.cmd" />
+    <None Include="DocDocos.nuspec" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DocDocos.ico" />
+    <Content Include="DocDocos01.xml" />
+    <Content Include="DocDocos02.xml" />
+    <Content Include="DocDocosNconfig.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
