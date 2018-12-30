@@ -6,8 +6,8 @@
     <Platform>AnyCPU</Platform>
     <ProjectGuid>{2C5AECAF-0155-49FB-B075-C72E719AB0CA}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>MokaDocos</RootNamespace>
-    <AssemblyName>MokaDocos</AssemblyName>
+    <RootNamespace>DocDocos</RootNamespace>
+    <AssemblyName>DocDocos</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -38,7 +38,7 @@
     <PropertyGroup>
       <NugetFramework>net45\</NugetFramework>
       <PrefixeSource>D:\DevCenter\build\TempBuild\Sources\</PrefixeSource>
-      <Logiciel>MokaDocos</Logiciel>
+      <Logiciel>DocDocos</Logiciel>
       <VersionLogiciel>0.1.1</VersionLogiciel>
       <NugetRoot>d:\Devcenter\build\TempBuild\bin\$(Logiciel)\$(VersionLogiciel)\</NugetRoot>
       <OutputPath>d:\Devcenter\build\TempBuild\bin\$(Logiciel)\$(VersionLogiciel)\lib\$(NugetFramework)</OutputPath>
@@ -64,8 +64,8 @@
     
     <csc Sources="@(Compile)"
      EmitDebugInformation="false"
-     DocumentationFile="$(NugetRoot)MokaDocos.xml"
-     OutputAssembly="$(OutputPath)MokaDocos.dll"
+     DocumentationFile="$(NugetRoot)DocDocos.xml"
+     OutputAssembly="$(OutputPath)DocDocos.dll"
          TargetType="Library"/>
    
     

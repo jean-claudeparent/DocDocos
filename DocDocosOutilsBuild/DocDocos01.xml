@@ -6,7 +6,7 @@
     <PrefixeSource>D:\DevCenter\build\TempBuild\</PrefixeSource>
     <Templates>D:\DevCenter\build\Templates\dev\</Templates>
     <repository>d:\Devcenter\sources\</repository>
-     <Logiciel>MokaDocos</Logiciel>
+     <Logiciel>DocDocos</Logiciel>
     <VersionLogiciel>0.1.1</VersionLogiciel>
     <OutputDirectory>d:\Devcenter\build\TempBuild\bin\$(Logiciel)\$(VersionLogiciel)\lib\</OutputDirectory>
 </PropertyGroup>
@@ -14,18 +14,18 @@
 
   <ItemGroup>
     <None Remove=".DS_Store" />
-    <None Remove="MokaDocos-gabarit.html" />
+    <None Remove="DocDocos-gabarit.html" />
   </ItemGroup>
   <ItemGroup>
-    <None Update="MokaDocos-License.txt">
+    <None Update="DocDocos-License.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="MokaDocos-gabarit.html">
+    <None Update="DocDocos-gabarit.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="MokaDocos-gabarit.html">
+    <Content Include="DocDocos-gabarit.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
@@ -38,14 +38,14 @@
 <Target Name="extrairesources">
 <PropertyGroup>
   <CodeSourceRepo>$(repository)$(Logiciel)\</CodeSourceRepo> 
-  <BuildCodeSource>$(PrefixeSource)\sources\MokaDocos</BuildCodeSource> 
+  <BuildCodeSource>$(PrefixeSource)\sources\DocDocos</BuildCodeSource> 
 </PropertyGroup>
 <ItemGroup>
-    <MesFichiersSource Include="$(CodeSourceRepo)MokaDocos\*.cs"/>
-    <MesFichiersSource Include="$(CodeSourceRepo)MokaDocos\Utilitaires\*.cs"/>
-    <MesFichiersSource Include="$(CodeSourceRepo)MokaDocos\*.htm*"/>
-    <MesFichiersSource Include="$(CodeSourceRepo)MokaDocos\*.txt"/>
-  <MesFichiersSource Include="$(CodeSourceRepo)MokaDocosOutilsBuild\Assenbly*.cs"/>
+    <MesFichiersSource Include="$(CodeSourceRepo)DocDocos\*.cs"/>
+    <MesFichiersSource Include="$(CodeSourceRepo)DocDocos\Utilitaires\*.cs"/>
+    <MesFichiersSource Include="$(CodeSourceRepo)DocDocos\*.htm*"/>
+    <MesFichiersSource Include="$(CodeSourceRepo)DocDocos\*.txt"/>
+  <MesFichiersSource Include="$(CodeSourceRepo)DocDocosOutilsBuild\Assenbly*.cs"/>
 </ItemGroup>
 <RemoveDir  Directories="$(BuildSource)" />
   <MakeDir  Directories="$(BuildSource)" />

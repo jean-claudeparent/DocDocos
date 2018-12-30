@@ -1,16 +1,16 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <package >
   <metadata>
-    <id>MokaDocos</id>
+    <id>org.jcassertion.DocDocos</id>
     <version>0.1.0</version>
-    <title>MokaDocos</title>
+    <title>DocDocos Générateur de documentation</title>
     <authors>Jean-Claude Parent</authors>
     <owners>jean-claude.parent</owners>
     <license type="expression">MIT</license>
-    <projectUrl>https://github.com/noursicain/MokaDocos/</projectUrl>
+    <projectUrl>https://github.com/noursicain/DocDocos/</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Une composante pour créer un site web simple à partir du fichier xml de documentation généré par Visual Studio</description>
-    <releaseNotes>Cette version sert juste à explorer la création de nuget</releaseNotes>
+    <releaseNotes>Pre-releaase Cette version sert juste à explorer la création de nuget</releaseNotes>
     <copyright>Copyright 2018 Jean-Claude Parent</copyright>
     <tags>Génération documentation html xml VS</tags>
   </metadata>

@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // Les informations générales relatives à un assembly dépendent de
 // l'ensemble d'attributs suivant. Changez les valeurs de ces attributs pour modifier les informations
 // associées à un assembly.
-[assembly: AssemblyTitle("MokaDocos")]
+[assembly: AssemblyTitle("DocDocos")]
 [assembly: AssemblyDescription("Nuget perettant de créer un site web simple à partir du fichier xml de documentation produit par Visual Studio.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("MokaDocos")]
+[assembly: AssemblyProduct("DocDocos")]
 [assembly: AssemblyCopyright("Copyright ©  2018 Jean-Claude Parent")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
