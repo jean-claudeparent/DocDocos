@@ -1,9 +1,15 @@
-@echo ogg
+@echo off
+dir >%~dp0log.txt
+xcopy %~dp0ModeleUTF8.txt %~dp0log.txt /y
+if %errorlevel% NEQ 0 goto erreur
+
+chcp 65001
+echo  Exécution   %date% %time% >>%~dp0log.txt
 echo copie des sources de DocDocos
 chcp 65001
 set Msbuildexe="C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\MSBuild.exe"
 set Nugetexe="D:\DevCenter\Tools\nuget.exe"
-%Msbuildexe% "D:\DevCenter\Sources\DocDocos\DocDocosOutilsBuild\DocDocos01.xml" /nologo  >%~dp0log.txt
+%Msbuildexe% "D:\DevCenter\Sources\DocDocos\DocDocosOutilsBuild\DocDocos01.xml" /nologo  >>%~dp0log.txt
 if %errorlevel% NEQ 0 goto erreur
 %Msbuildexe% /help >>%~dp0log.txt
 
@@ -13,14 +19,14 @@ echo build D:\DevCenter\Sources\DocDocos\DocDocos\DocDocos.csproj >>%~dp0log.txt
 %Msbuildexe% "D:\DevCenter\Sources\DocDocos\DocDocos\DocDocos.csproj" /p:Configuration=Release >>%~dp0log.txt
 if %errorlevel% NEQ 0 goto erreurs
 echo D:\DevCenter\Sources\DocDocos\DocDocos\bin\Release\netcoreapp2.1\DocDocos.dll
-mkdir "D:\DevCenter\build\TempBuild\bin\DocDocos\0.1.1\lib\nc21" >>%~dp0log.txt
+mkdir "D:\DevCenter\build\TempBuild\bin\DocDocos\0.1.1\lib\netcoreapp2.1" >>%~dp0log.txt
 if %errorlevel% NEQ 0 goto erreur
 
-xcopy "D:\DevCenter\Sources\DocDocos\DocDocos\bin\Release\netcoreapp2.1\DocDocos.dll" "D:\DevCenter\build\TempBuild\bin\DocDocos\0.1.1\lib\nc21" /y>>%~dp0log.txt
+xcopy "D:\DevCenter\Sources\DocDocos\DocDocos\bin\Release\netcoreapp2.1\DocDocos.dll" "D:\DevCenter\build\TempBuild\bin\DocDocos\0.1.1\lib\netcoreapp2.1" /y>>%~dp0log.txt
 if %errorlevel% NEQ 0 goto erreur
 
 
-xcopy "D:\DevCenter\Sources\DocDocos\DocDocosOutilsBuild\DocDocos.nuspec" "D:\DevCenter\build\TempBuild\bin\DocDocos\0.1.1\" /y >>%~dp0log.txt
+xcopy "D:\DevCenter\Sources\DocDocos\DocDocosOutilsBuild\DocDocos.nuspec" "D:\DevCenter\build\TempBuild\bin\DocDocos\0.1.1\" /f /y >>%~dp0log.txt
 if %errorlevel% NEQ 0 goto erreur
 xcopy "D:\DevCenter\Sources\DocDocos\DocDocosOutilsBuild\DocDocosNconfig.xml" "D:\DevCenter\build\TempBuild\bin\DocDocos\0.1.1\" /y >>%~dp0log.txt
 if %errorlevel% NEQ 0 goto erreur
