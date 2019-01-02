@@ -23,15 +23,30 @@ namespace DocDocos
         IO monIO = new IO();
         HTMLHelper HHêlper = new HTMLHelper();
          
-        public  DocDocosDA()
+        public  DocDocosDA(
+            string FichierGabaritOptionnel = null)
         {
-             string Chemin = 
+            if (string.IsNullOrEmpty(FichierGabaritOptionnel))
+            {
+                string Chemin = 
                 monIO.RepertoireAssembly();
-            Chemin = monIO.AjouterCheminFichier(Chemin,
-                                                "MokaDocos-gabarit.html");
-            Gabarit = File.ReadAllText(Chemin);
+                Chemin = monIO.AjouterCheminFichier(Chemin,
+                                                "DocDocos-gabarit.html");
+                if (File.Exists(Chemin))
+                    Gabarit = File.ReadAllText(Chemin);
+                else
+                    Gabarit = HTMLHelper.GabaritDemo();
+            } else
+            {
+                if (File.Exists(FichierGabaritOptionnel))
+                    Gabarit = File.ReadAllText(FichierGabaritOptionnel);
+                else
+                    throw new Exception("Le fichier de gabarit "+
+                        FichierGabaritOptionnel +
+                        " est inexistant."); 
+            }
 
-        }
+    }
 
         /// <summary>
         /// Ce nombre remplacera une partie du nom

@@ -40,5 +40,23 @@ namespace DocDocos
             return "<p><!--Summary --!></p>";
         }
 
-    } //class
+        public static string GabaritDemo()
+        {
+            string Resultat = "";
+            Resultat = "<!DOCTYPE html>" + Environment.NewLine;
+            Resultat += "<html><head>" + Environment.NewLine  ;
+            Resultat += "<meta charset=\"utf-8\" />" + Environment.NewLine;
+            Resultat += "<title>{{Titre}}</title>" + Environment.NewLine;
+            Resultat += "</head><body>" + Environment.NewLine;
+            Resultat += "<h1>{{Titre}}</h1>" + Environment.NewLine;
+            Resultat += "<p>{{Contenu}}</p></body></html>" + Environment.NewLine;
+
+
+            return Resultat; 
+
+
+        }
+
+
+} //class
 }

@@ -28,7 +28,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="DocDocos-gabarit.html">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
 </Project>
