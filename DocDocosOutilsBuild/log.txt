@@ -1,6 +1,6 @@
 ﻿Éxécution
- Ex�cution   2018-12-31  9:53:41,56 
-La génération a démarré 2018-12-31 09:53:41.
+ Ex�cution   2019-01-01 23:47:58,41 
+La génération a démarré 2019-01-01 23:47:58.
 Projet "D:\DevCenter\Sources\DocDocos\DocDocosOutilsBuild\DocDocos01.xml" sur le nœud 1 (cibles par défaut).
 extrairesources:
   Copie du fichier de "d:\Devcenter\sources\DocDocos\DocDocos\DocDocosDA.cs" vers "D:\DevCenter\build\TempBuild\\sources\DocDocos\DocDocosDA.cs".
@@ -12,13 +12,14 @@ extrairesources:
   Copie du fichier de "d:\Devcenter\sources\DocDocos\DocDocos\Utilitaires\Str.cs" vers "D:\DevCenter\build\TempBuild\\sources\DocDocos\Str.cs".
   Copie du fichier de "d:\Devcenter\sources\DocDocos\DocDocos\DocDocos-gabarit.html" vers "D:\DevCenter\build\TempBuild\\sources\DocDocos\DocDocos-gabarit.html".
   Copie du fichier de "d:\Devcenter\sources\DocDocos\DocDocos\DocDocos-License.txt" vers "D:\DevCenter\build\TempBuild\\sources\DocDocos\DocDocos-License.txt".
+  Copie du fichier de "d:\Devcenter\sources\DocDocos\DocDocosOutilsBuild\DocDocos.props" vers "D:\DevCenter\build\TempBuild\\sources\DocDocos\DocDocos.props".
 Génération du projet "D:\DevCenter\Sources\DocDocos\DocDocosOutilsBuild\DocDocos01.xml" terminée (cibles par défaut).
 
 La génération a réussi.
     0 Avertissement(s)
     0 Erreur(s)
 
-Temps écoulé 00:00:00.09
+Temps écoulé 00:00:00.10
 Microsoft (R) Build Engine version 15.5.180.51428 pour .NET Framework
 Copyright (C) Microsoft Corporation. Tous droits réservés.
 
@@ -333,7 +334,7 @@ Exemples :
 Microsoft (R) Build Engine version 15.5.180.51428 pour .NET Framework
 Copyright (C) Microsoft Corporation. Tous droits réservés.
 
-La génération a démarré 2018-12-31 09:53:41.
+La génération a démarré 2019-01-01 23:47:58.
 Projet "D:\DevCenter\Sources\DocDocos\DocDocosOutilsBuild\DocDocos02.xml" sur le nœud 1 (cibles par défaut).
 main:
    Compilation .net 4.5
@@ -434,12 +435,12 @@ La génération a réussi.
     39 Avertissement(s)
     0 Erreur(s)
 
-Temps écoulé 00:00:00.68
+Temps écoulé 00:00:00.67
 build D:\DevCenter\Sources\DocDocos\DocDocos\DocDocos.csproj 
 Microsoft (R) Build Engine version 15.5.180.51428 pour .NET Framework
 Copyright (C) Microsoft Corporation. Tous droits réservés.
 
-La génération a démarré 2018-12-31 09:53:42.
+La génération a démarré 2019-01-01 23:47:59.
 Projet "D:\DevCenter\Sources\DocDocos\DocDocos\DocDocos.csproj" sur le nœud 1 (cibles par défaut).
 GenerateTargetFrameworkMonikerAttribute:
 La cible est ignorée "GenerateTargetFrameworkMonikerAttribute", car tous les fichiers de sortie sont à jour par rapport aux fichiers d'entrée.
@@ -463,11 +464,13 @@ La génération a réussi.
     0 Avertissement(s)
     0 Erreur(s)
 
-Temps écoulé 00:00:00.37
+Temps écoulé 00:00:00.39
 D:\DevCenter\Sources\DocDocos\DocDocos\bin\Release\netcoreapp2.1\DocDocos.dll
 1 fichier(s) copi�(s)
 D:\DevCenter\Sources\DocDocos\DocDocosOutilsBuild\DocDocos.nuspec -> D:\DevCenter\build\TempBuild\bin\DocDocos\0.1.1\DocDocos.nuspec
 1 fichier(s) copi�(s)
 D:\DevCenter\Sources\DocDocos\DocDocosOutilsBuild\DocDocosNconfig.xml
+1 fichier(s) copi�(s)
+D:\DevCenter\Sources\DocDocos\DocDocosOutilsBuild\DocDocos.props
 1 fichier(s) copi�(s)
 Fichier de command fini sans erreur 

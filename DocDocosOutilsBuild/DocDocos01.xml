@@ -4,11 +4,12 @@
   
   <PropertyGroup>
     <PrefixeSource>D:\DevCenter\build\TempBuild\</PrefixeSource>
-    <Templates>D:\DevCenter\build\Templates\dev\</Templates>
     <repository>d:\Devcenter\sources\</repository>
      <Logiciel>DocDocos</Logiciel>
     <VersionLogiciel>0.1.1</VersionLogiciel>
     <OutputDirectory>d:\Devcenter\build\TempBuild\bin\$(Logiciel)\$(VersionLogiciel)\lib\</OutputDirectory>
+    <Ressourcesbuild>$(repository)$(Logiciel)\DocDocosOutilsBuild</Ressourcesbuild>
+    
 </PropertyGroup>
 
 
@@ -45,14 +46,14 @@
     <MesFichiersSource Include="$(CodeSourceRepo)DocDocos\Utilitaires\*.cs"/>
     <MesFichiersSource Include="$(CodeSourceRepo)DocDocos\*.htm*"/>
     <MesFichiersSource Include="$(CodeSourceRepo)DocDocos\*.txt"/>
-  <MesFichiersSource Include="$(CodeSourceRepo)DocDocosOutilsBuild\Assenbly*.cs"/>
+    <MesFichiersSource Include="$(CodeSourceRepo)DocDocosOutilsBuild\Assenbly*.cs"/>
 </ItemGroup>
 <RemoveDir  Directories="$(BuildSource)" />
   <MakeDir  Directories="$(BuildSource)" />
   
 <Copy
    SourceFiles="@(MesFichiersSource)"
-   DestinationFiles="@(MesFichiersSource->'$(BuildCodeSource)\%(RecursiveDir)%(Filename)%(Extension)')" />
+     DestinationFiles="@(MesFichiersSource->'$(BuildCodeSource)\%(RecursiveDir)%(Filename)%(Extension)')" />
 </Target>
 
 </Project>

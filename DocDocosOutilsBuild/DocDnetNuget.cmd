@@ -30,6 +30,8 @@ xcopy "D:\DevCenter\Sources\DocDocos\DocDocosOutilsBuild\DocDocos.nuspec" "D:\De
 if %errorlevel% NEQ 0 goto erreur
 xcopy "D:\DevCenter\Sources\DocDocos\DocDocosOutilsBuild\DocDocosNconfig.xml" "D:\DevCenter\build\TempBuild\bin\DocDocos\0.1.1\" /y >>%~dp0log.txt
 if %errorlevel% NEQ 0 goto erreur
+xcopy "D:\DevCenter\Sources\DocDocos\DocDocosOutilsBuild\DocDocos.props" "D:\DevCenter\build\TempBuild\bin\DocDocos\0.1.1\" /y >>%~dp0log.txt
+if %errorlevel% NEQ 0 goto erreur
 
 echo creer la config
 %Nugetexe% config -set verbosity=detailed -configfile "D:\DevCenter\build\TempBuild\bin\DocDocos\0.1.1\DocDocosNConfig.xml" >>%~dp0log.txt
@@ -44,5 +46,7 @@ pause
 :erreur
 echo Fichier de command fini avec erreur >>%~dp0log.txt
 notepad %~dp0log.txt
+goto end
 :fini
 echo Fichier de command fini sans erreur >>%~dp0log.txt
+:end
