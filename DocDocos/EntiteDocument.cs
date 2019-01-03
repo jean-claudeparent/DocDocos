@@ -71,7 +71,7 @@ namespace DocDocos
                     } //end case
                     _Nom = value.Substring(2, value.Length - 2) ;
                 } // end else
-                _Niveaux = _Nom.Split("."[0]);
+                _Niveaux = Str.Debut(_Nom,"(").Split("."[0]);
                 
             } // end set
 

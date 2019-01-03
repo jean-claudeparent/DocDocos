@@ -43,6 +43,22 @@ namespace DocDocos
             return Resultat;
             
         }
+        /// <summary>
+        /// Retourne le début de la chaîne de 
+        /// caractère qui sont acvant un certains caractère
+        /// </summary>
+        /// <returns></returns>
+        public static string Debut(
+            string Chaine,
+            string Separateur)
+        {
+            if (string.IsNullOrEmpty(Chaine))
+                return "";
+            if (Chaine.IndexOf(Separateur) < 0)
+                return Chaine;
+            return Chaine.Substring(0,
+               Chaine.IndexOf(Separateur)); 
+        }
 
 
 
