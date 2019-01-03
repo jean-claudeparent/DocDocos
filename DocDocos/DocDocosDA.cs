@@ -23,6 +23,12 @@ namespace DocDocos
         IO monIO = new IO();
         HTMLHelper HHêlper = new HTMLHelper();
          
+        /// <summary>
+        /// Constructeur qui peut accepter
+        /// le nom du fichier degabarit
+        /// en argument
+        /// </summary>
+        /// <param name="FichierGabaritOptionnel">Chemin et nom de fichier pour utiliser un gabarit optionnel pour la génération du site</param>
         public  DocDocosDA(
             string FichierGabaritOptionnel = null)
         {
@@ -55,9 +61,22 @@ namespace DocDocos
         /// </summary>
         public Int32 RaccourciFichier = 1;
 
+        /// <summary>
+        /// Chemin et nom du fichier de documentation xml à traiter
+        /// </summary>
         public string FichierXMLDoc;
+
+        /// <summary>
+        /// Répertoire où sera créé le site web.
+        /// </summary>
         public string RepertoireSortie;
+
+        /// <summary>
+        /// Contenu du gabarit qui sera utilisé pour générer les pages du site.
+        /// </summary>
         public string Gabarit;
+
+
         private XDocument Doc = new XDocument();
         public string NomNamespace;
         private   Dictionary<string, EntiteDocument> Dictionnaire =
@@ -175,10 +194,14 @@ namespace DocDocos
 
         }
 
-
+        /// <summary>
+        /// Crée le html et le mnom de fichier
+        /// </summary>
+        /// <param name="ItemATraiter"></param>
         private  void  TraiterItem(
                 ref EntiteDocument ItemATraiter)
         {
+            // Initialiser les propriétés vides
                 if (ItemATraiter == null)
                     throw new Exception("Le noeud à traiter n'existe pas ca il est à null");
                 if (ItemATraiter.Information == "")
@@ -187,7 +210,11 @@ namespace DocDocos
             if (string.IsNullOrEmpty(ItemATraiter.NomFichier))
                 ItemATraiter.NomFichier = NormaliserNomFichier(
                     ItemATraiter.Nom);
-            
+            // Construire le html
+            ItemATraiter.Information =
+                ItemATraiter.Information.Replace(
+                    "{{Summary}}",
+                    ItemATraiter.Sommaire ); 
         }
 
         

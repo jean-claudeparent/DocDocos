@@ -37,7 +37,7 @@ namespace DocDocos
 
         public String GabaritMethodeSummary()
         {
-            return "<p><!--Summary --!></p>";
+            return "<p>{{Summary}}</p>";
         }
 
         public static string GabaritDemo()
