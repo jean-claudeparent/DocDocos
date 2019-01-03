@@ -19,10 +19,9 @@ namespace DocDocos
         /// <returns>Gabarit</returns>
         public string GabaritNethode()
         {
-            return "<!-- PartieBariable --!>" +
-                GabaritMethodeSummary() + 
-                "<table><!-- Contenu --!>" +
-                "</table>";
+            return 
+                GabaritMethodeSummary() +
+                GabaritTableau();
         }
         
         /// <summary>
@@ -32,12 +31,22 @@ namespace DocDocos
         /// <returns></returns>
         public string GabaritItemMethode()
         {
-            return "<tr></tr>";
+            return "<tr>{{ContenuLigne}}</tr>";
+        }
+
+        public string GabaritCelluleMethode()
+        {
+            return "<td>{{ContenuCellule}}</td>";
         }
 
         public String GabaritMethodeSummary()
         {
             return "<p>{{Summary}}</p>";
+        }
+
+        public string GabaritTableau()
+        {
+            return "<table>{{Rangee}}</table>";
         }
 
         public static string GabaritDemo()

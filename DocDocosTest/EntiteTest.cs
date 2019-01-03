@@ -71,5 +71,48 @@ namespace MokaDocosTest
                 E1.Niveau(6));
             
         }
+
+        [TestMethod]
+        public void NomParentTest()
+        {
+            EntiteDocument monTest =
+                new EntiteDocument();
+            monTest.Nom = 
+                "M:Namesp.niv1.niv2.miv3.niv4";
+            Assert.AreEqual(
+                "Namesp.niv1.niv2.miv3.niv4",
+                monTest.Nom);
+            string Parent = monTest.NomParent();
+            Assert.AreEqual(
+                "Namesp.niv1.niv2.miv3",
+                Parent);
+
+            monTest.Nom = Parent;
+            Parent = monTest.NomParent();
+            Assert.AreEqual(
+                "Namesp.niv1.niv2",
+                Parent);
+
+            monTest.Nom = Parent;
+            Parent = monTest.NomParent();
+            Assert.AreEqual(
+                "Namesp.niv1",
+                Parent);
+
+            monTest.Nom = Parent;
+            Parent = monTest.NomParent();
+            Assert.AreEqual(
+                "Namesp",
+                Parent);
+
+            monTest.Nom = Parent;
+            Parent = monTest.NomParent();
+            Assert.AreEqual(
+                null,
+                Parent);
+
+
+        }
+
     } // class
 }

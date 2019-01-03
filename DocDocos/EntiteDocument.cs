@@ -133,6 +133,28 @@ namespace DocDocos
             }
         }
 
+        public String NomParent()
+        {
+            string Resultat = "";
 
-} // class
+            if (NombreNiveaux() == 0)
+                return null;
+    if (NombreNiveaux() == 1)
+                return Niveau(0);
+    for (int i = 0;
+         i < (NombreNiveaux() - 1);
+         i++)
+        {
+                if (i == 0)
+                    Resultat = Niveau(0);
+                else
+                    Resultat += "." + Niveau(i);
+          
+        } //for
+       return Resultat; 
+    } //methode
+
+
+
+    } // class
 } // namespace
