@@ -184,6 +184,8 @@ namespace DocDocos
             foreach (var cle in Cles)
             {
                 Dictionnaire.TryGetValue(cle, out Temp);
+                if (Temp == null)
+                    Temp = new EntiteDocument (cle);
                 TraiterItem(ref Temp);
                 MAJDict(cle, Temp);
 
@@ -203,7 +205,8 @@ namespace DocDocos
         {
             // Initialiser les propriétés vides
                 if (ItemATraiter == null)
-                    throw new Exception("Le noeud à traiter n'existe pas ca il est à null");
+                    throw new Exception(
+                        "Le noeud à traiter n'existe pas car il est à null");
                 if (ItemATraiter.Information == "")
                     ItemATraiter.Information = 
                         HHêlper.GabaritNethode();
@@ -262,6 +265,8 @@ namespace DocDocos
         private void AjouterDictionnaire(
             XElement  NoeudDict)
         {
+            string monDebug = "";
+
             EntiteDocument Courant = 
                 new EntiteDocument();
             Courant = TraiterNoeud(NoeudDict);
@@ -272,14 +277,14 @@ namespace DocDocos
                 i++ )
             {
                 if(i == 0)
-                    FullName +=  Courant.Niveau(i);
+                    FullName =  Courant.Niveau(i);
                 else
                     FullName += "." + Courant.Niveau(i);
 
-                MAJDict(FullName, 
-                    new EntiteDocument(FullName));
+                MAJDict(FullName, null);
+                
             }
-            MAJDict(Courant.Nom, Courant);
+            MAJDict(Courant.Nom  , Courant);
 
             
         }
@@ -292,17 +297,23 @@ namespace DocDocos
                 Dictionnaire.Add(Cle, Doc); 
             else
             {
-                Dictionnaire[Cle] = 
-                    Doc;
+                if(Doc != null)
+                  Dictionnaire[Cle] = 
+                      Doc;
             }
+            string d = "";
             
 
 
         }
 
+        /// <summary>
+        /// Ajouter chaque membre du fichier
+        /// xml dans le dictionnaire.
+        /// </summary>
         public void AjouterToutDict()
         {
-            string Debug;
+            
             Doc = XDocument.Load(FichierXMLDoc);
 
             IEnumerable<XElement> ListeNoeuds =
@@ -316,8 +327,7 @@ namespace DocDocos
             foreach (XElement  NoeudCourant in ListeNoeuds)
             { 
                 AjouterDictionnaire(NoeudCourant);
-                //throw new NotImplementedException(Debug );
-
+                
             }
             
         }
