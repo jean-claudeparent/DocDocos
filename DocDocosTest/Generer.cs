@@ -52,7 +52,8 @@ namespace MokaDocosTest
 
             Assert.IsTrue(Resultat.Contains(
                 "Ajoute un autre niveau à un path"),
-                "erreur Ajoute un autre niveau à un path");
+                "erreur Ajoute un autre niveau à un path Valeur=" +
+                Resultat);
             
             }
 
@@ -96,13 +97,12 @@ namespace MokaDocosTest
         public void ComvertirNoeud()
         {
             DocDocosDA monGenerateur = new DocDocosDA();
-            //todo faire un cas qu
-
+            
             // cas qui marche
             XElement monXML = new XElement
                 ("member",
                 new XAttribute("name",
-                "namespace.testniveau1.niveau2.niveau3.niveau4.niveau5"),
+                "namespace.testniveau1.niveau2.niveau3.niveau4.niveau5(System.String,System.String)"),
                 new XElement("summary", "Ceci est le sommaire."));
 
             EntiteDocument monED = 
