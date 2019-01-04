@@ -29,7 +29,7 @@ namespace DocDocos
         /// le traitement d'une ligne de tableau
         /// </summary>
         /// <returns></returns>
-        public string GabaritItemMethode()
+        private  string GabaritRangeeMethode()
         {
             return "<tr>{{ContenuLigne}}</tr>";
         }
@@ -44,7 +44,13 @@ namespace DocDocos
             return "<p>{{Summary}}</p>";
         }
 
-        public string GabaritTableau()
+        /// <summary>
+        /// Retourne le html définissant une
+        /// table HTML avec une zone pour
+        /// insérer l'information du tableau
+        /// </summary>
+        /// <returns>HTML représentant le début et la fin d'une table html</returns>
+        private  string GabaritTableau()
         {
             return "<table>{{Rangee}}</table>";
         }
@@ -66,6 +72,38 @@ namespace DocDocos
 
         }
 
+        public String EncodeHTNL(
+            string HTNL)
+        {
+            HTNL = HTNL.Replace("<", "&lt;");
+            HTNL = HTNL.Replace(">", "&gt;");
+            return HTNL;
 
-} //class
+        }
+
+        /// <summary>
+        /// Crée un bloc de HTML
+        /// représentant une rangée de données
+        /// d'un tableau
+        /// </summary>
+        /// <param name="Cellule1"></param>
+        /// <param name="Cellule2"></param>
+        /// <param name="Cellule2"></param>
+        /// <returns>HTML créé</returns>
+        public  string CreerRangee(
+            string Cellule1,
+            string Cellule2 = null,
+            string Cellule3 = null)
+        {
+            string Resultat = 
+                GabaritCelluleMethode().Replace(
+                    "{{ContenuCellule}}",
+                    EncodeHTNL(Cellule1));
+
+
+            return GabaritRangeeMethode().Replace(
+                "{{ContenuLigne}}", Resultat); 
+        } // methode
+
+    } //class
 }
