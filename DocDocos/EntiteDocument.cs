@@ -140,7 +140,7 @@ namespace DocDocos
             if (NombreNiveaux() == 0)
                 return null;
     if (NombreNiveaux() == 1)
-                return Niveau(0);
+                return null ;
     for (int i = 0;
          i < (NombreNiveaux() - 1);
          i++)

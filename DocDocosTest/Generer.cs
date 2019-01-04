@@ -39,7 +39,7 @@ namespace MokaDocosTest
 
             string FR = monIO.AjouterCheminFichier( 
                     monGenerateur.RepertoireSortie,
-                    "JCUtilitaires.IO.AjouterCheminFichier2.html");
+                    "JCUtilitaires.IO.AjouterCheminFichier1.html");
                 
 
             Assert.IsTrue(
