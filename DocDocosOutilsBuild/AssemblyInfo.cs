@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // l'ensemble d'attributs suivant. Changez les valeurs de ces attributs pour modifier les informations
 // associées à un assembly.
 [assembly: AssemblyTitle("DocDocos")]
-[assembly: AssemblyDescription("Nuget perettant de créer un site web simple à partir du fichier xml de documentation produit par Visual Studio.")]
+[assembly: AssemblyDescription("Composante perettant de créer un site web simple à partir du fichier xml de documentation produit par Visual Studio.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("DocDocos")]
-[assembly: AssemblyCopyright("Copyright ©  2018 Jean-Claude Parent")]
+[assembly: AssemblyCopyright("Copyright ©  2018,2019 Jean-Claude Parent")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

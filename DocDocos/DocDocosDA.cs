@@ -188,6 +188,8 @@ namespace DocDocos
                     Temp = new EntiteDocument (cle);
                 TraiterItem(ref Temp);
                 MAJDict(cle, Temp);
+                MAJDictParent(cle, Temp);
+
 
 
 
@@ -363,6 +365,26 @@ namespace DocDocos
 
 
         }
+
+        private void MAJDictParent(
+            string  cle,
+            EntiteDocument  Enfant)
+        {
+            string CleParent = Enfant.NomParent();
+            if (string.IsNullOrEmpty(CleParent))
+                return;
+
+            EntiteDocument Parent = Dictionnaire[CleParent];
+            if (string.IsNullOrEmpty(
+                Parent.Information))
+                throw new Exception(
+                    "Erreur de logicque dans la programmation, l'entrée de dictionnnaire " +
+                    CleParent +
+                    " n'a pas son information initialisée avec le gabarit interne html"); 
+                
+                }
+
+
 
     } // class
 }
