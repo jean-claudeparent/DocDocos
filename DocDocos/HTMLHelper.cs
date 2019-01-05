@@ -10,6 +10,22 @@ namespace DocDocos
     /// </summary>
     public  class HTMLHelper
     {
+        /// <summary>
+        /// Liste de toutes les bariables de 
+        /// substitution utilisées
+        /// </summary>
+        /// <returns></returns>
+        public  static List<string> Variables()
+        {
+             List<string> Resultat =
+                   new List<string>();
+            Resultat.Add("{{ContenuLigne}}");
+            Resultat.Add("{{ContenuCellule}}");
+            Resultat.Add("{{Rangee}}"); 
+            Resultat.Add("{{Summary}}");
+            
+            return Resultat; 
+        }
 
 
         /// <summary>
@@ -34,12 +50,14 @@ namespace DocDocos
             return "<tr>{{ContenuLigne}}</tr>";
         }
 
-        public string GabaritCelluleMethode()
+        private  string GabaritCelluleMethode()
         {
-            return "<td>{{ContenuCellule}}</td>";
+            return Environment.NewLine + "   " +
+                "<td>{{ContenuCellule}}</td>" +
+                Environment.NewLine  ;
         }
 
-        public String GabaritMethodeSummary()
+        private  String GabaritMethodeSummary()
         {
             return "<p>{{Summary}}</p>";
         }
@@ -52,9 +70,17 @@ namespace DocDocos
         /// <returns>HTML représentant le début et la fin d'une table html</returns>
         private  string GabaritTableau()
         {
-            return "<table>{{Rangee}}</table>";
+            return Environment.NewLine +
+                "<table>{{Rangee}}</table>" +
+                Environment.NewLine;  
         }
 
+        /// <summary>
+        /// Retourne un gabarit de démonstration
+        /// utilisé au casoù le fichier de 
+        /// gabatir serait introuvable
+        /// </summary>
+        /// <returns></returns>
         public static string GabaritDemo()
         {
             string Resultat = "";
@@ -72,6 +98,12 @@ namespace DocDocos
 
         }
 
+        /// <summary>
+        /// Encode en équivalent html les caracttères
+        /// probématiques dans l'affichage d'un document html
+        /// </summary>
+        /// <param name="HTNL"></param>
+        /// <returns></returns>
         public String EncodeHTNL(
             string HTNL)
         {
@@ -100,9 +132,23 @@ namespace DocDocos
                     "{{ContenuCellule}}",
                     EncodeHTNL(Cellule1));
 
+            if(!string.IsNullOrEmpty(Cellule2))
+                Resultat +=
+                GabaritCelluleMethode().Replace(
+                    "{{ContenuCellule}}",
+                    EncodeHTNL(Cellule2));
 
-            return GabaritRangeeMethode().Replace(
-                "{{ContenuLigne}}", Resultat); 
+            if (!string.IsNullOrEmpty(Cellule3))
+                Resultat +=
+                GabaritCelluleMethode().Replace(
+                    "{{ContenuCellule}}",
+                    EncodeHTNL(Cellule3));
+
+
+            return Environment.NewLine + 
+                GabaritRangeeMethode().Replace(
+                "{{ContenuLigne}}", Resultat) +
+                Environment.NewLine; 
         } // methode
 
     } //class

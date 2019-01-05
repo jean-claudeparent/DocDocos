@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using DocDocos;
+using System;
 
 namespace DocDocosTest
 {
@@ -11,9 +12,17 @@ namespace DocDocosTest
         {
             HTMLHelper H =
                 new HTMLHelper();
+
+            string Reponse = Environment.NewLine +
+                "<tr>" + Environment.NewLine +
+                "   <td>Une colonne 3&lt;&gt;5 ne pas enlever:{{ContenuCellule}}</td>" +
+            Environment.NewLine +
+            "</tr>" + Environment.NewLine   ;   
+
             Assert.AreEqual(
-                "<tr><td>Une colonne 3&lt;&gt;5</td></tr>",
-                H.CreerRangee("Une colonne 3<>5")); 
+                Reponse,
+                H.CreerRangee("Une colonne 3<>5 ne pas enlever:" +
+                HTMLHelper.Variables()[1])); 
         }
 
 
