@@ -47,14 +47,14 @@ namespace DocDocos
         /// <returns></returns>
         private  string GabaritRangeeMethode()
         {
-            return "<tr>{{ContenuLigne}}</tr>";
+            return "<tr>{{ContenuLigne}}" +
+                Environment.NewLine   + "</tr>";
         }
 
         private  string GabaritCelluleMethode()
         {
             return Environment.NewLine + "   " +
-                "<td>{{ContenuCellule}}</td>" +
-                Environment.NewLine  ;
+                "<td>{{ContenuCellule}}</td>";
         }
 
         private  String GabaritMethodeSummary()
@@ -109,6 +109,11 @@ namespace DocDocos
         {
             HTNL = HTNL.Replace("<", "&lt;");
             HTNL = HTNL.Replace(">", "&gt;");
+            HTNL = HTNL.Replace("&", "&amp;");
+            HTNL = HTNL.Replace("{", "&#123;");
+            HTNL = HTNL.Replace("}", "&#125;");
+
+
             return HTNL;
 
         }
@@ -132,23 +137,22 @@ namespace DocDocos
                     "{{ContenuCellule}}",
                     EncodeHTNL(Cellule1));
 
-            if(!string.IsNullOrEmpty(Cellule2))
+            if(Cellule2 != null)
                 Resultat +=
-                GabaritCelluleMethode().Replace(
+                  GabaritCelluleMethode().Replace(
                     "{{ContenuCellule}}",
                     EncodeHTNL(Cellule2));
 
             if (!string.IsNullOrEmpty(Cellule3))
                 Resultat +=
-                GabaritCelluleMethode().Replace(
+                  GabaritCelluleMethode().Replace(
                     "{{ContenuCellule}}",
                     EncodeHTNL(Cellule3));
 
 
             return Environment.NewLine + 
                 GabaritRangeeMethode().Replace(
-                "{{ContenuLigne}}", Resultat) +
-                Environment.NewLine; 
+                "{{ContenuLigne}}", Resultat); 
         } // methode
 
     } //class
