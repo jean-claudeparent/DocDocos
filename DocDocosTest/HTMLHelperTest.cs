@@ -21,8 +21,9 @@ namespace DocDocosTest
 
             Assert.AreEqual(
                 Reponse,
-                H.CreerRangee("Une colonne 3<>5 ne pas enlever:" +
-                HTMLHelper.Variables()[1]),
+                H.CreerRangee(H.EncodeHTNL (
+                    "Une colonne 3<>5 ne pas enlever:" +
+                HTMLHelper.Variables()[1])),
                 Environment.NewLine + 
                 "==>cas à une colonne");
 

@@ -31,6 +31,14 @@ namespace DocDocos
         }
 
 
+        /// <summary>
+        /// Substitue des variables
+        /// du html par les valeurs
+        /// </summary>
+        /// <param name="HTNLGlobal">HTML qui contient les variables</param>
+        /// <param name="IdentifiantVariable">Identifiant de la variables comme par exemple {{Rangee}}</param>
+        /// <param name="ContenuVariables">Valeur de la variable avec le HTML déjà encodé</param>
+        /// <returns>HTML avec les variables substituée par leur valeurs</returns>
         public string ConstruireHTML(
             string HTNLGlobal,
             string IdentifiantVariable,
@@ -55,21 +63,55 @@ namespace DocDocos
                     IdentifiantVariable +
                     " doit être délimitée par {{ et }}"); 
         }
-
-         
+        /// <summary>
+        /// Enlève les identifiants de variables
+        /// restants dans le HTML
+        /// </summary>
+        /// <returns></returns>
+        public string  MenageHTNL(
+            string HTML)
+        {
+            string  Resultat = HTML;
+            foreach(string IDVariable in Variables())
+            {
+                Resultat = Resultat.Replace(
+                    IDVariable,"" );   
+            }
+            return Resultat;
+        }
+        /// <summary>
+        /// Retourne le gabarit affichant
+        /// l'infomration dans lapage.
+        /// </summary>
+        /// <returns></returns>
         public string GabaritInterne()
         {
             return 
-                GabaritMethodeSummary() +
+                GabaritSummary() +
                 GabaritTableau();
         }
         
         /// <summary>
-        /// Retourne legabatit pour
-        /// le traitement d'une ligne de tableau
+        /// Crée un hiperlien
+        /// en html
         /// </summary>
+        /// <param name="URL"></param>
+        /// <param name="Nom"></param>
         /// <returns></returns>
-        private  string GabaritRangeeMethode()
+        public string ConstruireLien(
+            string URL,
+            string Nom)
+        {
+            return "<a href=\"" + URL + "\">" +
+                EncodeHTNL(Nom) + "</a>";
+        }
+
+    /// <summary>
+    /// Retourne legabatit pour
+    /// le traitement d'une ligne de tableau
+    /// </summary>
+    /// <returns></returns>
+    private  string GabaritRangee()
         {
             return "<tr>{{ContenuLigne}}" +
                 Environment.NewLine   + "</tr>";
@@ -81,7 +123,7 @@ namespace DocDocos
                 "<td>{{ContenuCellule}}</td>";
         }
 
-        private  String GabaritMethodeSummary()
+        private  String GabaritSummary()
         {
             return "<p>{{Summary}}</p>";
         }
@@ -95,7 +137,7 @@ namespace DocDocos
         private  string GabaritTableau()
         {
             return Environment.NewLine +
-                "<table>{{Rangee}}</table>" +
+                "<table border=\"1\">{{Rangee}}</table>" +
                 Environment.NewLine;  
         }
 
@@ -147,7 +189,7 @@ namespace DocDocos
         /// représentant une rangée de données
         /// d'un tableau
         /// </summary>
-        /// <param name="Cellule1"></param>
+        /// <param name="Cellule1">Valeur de la première cullule de la rangée. Elle doit être encodée en HTML si besoin est.</param>
         /// <param name="Cellule2"></param>
         /// <param name="Cellule2"></param>
         /// <returns>HTML créé</returns>
@@ -159,23 +201,21 @@ namespace DocDocos
             string Resultat = 
                 GabaritCelluleTable().Replace(
                     "{{ContenuCellule}}",
-                    EncodeHTNL(Cellule1));
+                    Cellule1);
 
             if(Cellule2 != null)
                 Resultat +=
                   GabaritCelluleTable().Replace(
                     "{{ContenuCellule}}",
-                    EncodeHTNL(Cellule2));
+                    Cellule2);
 
             if (!string.IsNullOrEmpty(Cellule3))
                 Resultat +=
                   GabaritCelluleTable().Replace(
                     "{{ContenuCellule}}",
-                    EncodeHTNL(Cellule3));
-
-
+                    Cellule3);
             return Environment.NewLine + 
-                GabaritRangeeMethode().Replace(
+                GabaritRangee().Replace(
                 "{{ContenuLigne}}", Resultat); 
         } // methode
 
