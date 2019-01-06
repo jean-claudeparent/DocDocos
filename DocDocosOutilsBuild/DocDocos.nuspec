@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>org.jcassertion.DocDocos</id>
-    <version>0.1.4-beta</version>
+    <version>0.2.0</version>
     <title>DocDocos Générateur de documentation</title>
     <authors>Jean-Claude Parent</authors>
     <owners>jean-claude.parent</owners>
@@ -10,7 +10,7 @@
     <projectUrl>https://github.com/noursicain/DocDocos/</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Une composante pour créer un site web simple à partir du fichier xml de documentation généré par Visual Studio</description>
-    <releaseNotes>Pre-releaase Crée les pages du site et mets le summary dedans.</releaseNotes>
+    <releaseNotes>Crée les pages du site, mets le summary et crée les hyoerliens entre  les pages.</releaseNotes>
     <copyright>Copyright 2018,2019 Jean-Claude Parent</copyright>
     <language>fr-CA</language>
     
