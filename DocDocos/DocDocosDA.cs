@@ -211,7 +211,7 @@ namespace DocDocos
                         "Le noeud à traiter n'existe pas car il est à null");
                 if (ItemATraiter.Information == "")
                     ItemATraiter.Information = 
-                        HHêlper.GabaritNethode();
+                        HHêlper.GabaritInterne();
             if (string.IsNullOrEmpty(ItemATraiter.NomFichier))
                 ItemATraiter.NomFichier = NormaliserNomFichier(
                     ItemATraiter.Nom);

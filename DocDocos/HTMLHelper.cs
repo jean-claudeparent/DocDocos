@@ -28,12 +28,22 @@ namespace DocDocos
         }
 
 
+        public string ConstruireHTML(
+            string HTNLGlobal,
+            string IdentifiantVariable,
+            string ContenuVariables)
+        {
+            return HTNLGlobal.Replace(
+                IdentifiantVariable,
+                ContenuVariables + IdentifiantVariable); 
+        }
+
         /// <summary>
         /// Retourne le gabarit HTML
         /// du conenu d'une page de méthode
         /// </summary>
         /// <returns>Gabarit</returns>
-        public string GabaritNethode()
+        public string GabaritInterne()
         {
             return 
                 GabaritMethodeSummary() +
@@ -51,7 +61,7 @@ namespace DocDocos
                 Environment.NewLine   + "</tr>";
         }
 
-        private  string GabaritCelluleMethode()
+        private  string GabaritCelluleTable()
         {
             return Environment.NewLine + "   " +
                 "<td>{{ContenuCellule}}</td>";
@@ -133,19 +143,19 @@ namespace DocDocos
             string Cellule3 = null)
         {
             string Resultat = 
-                GabaritCelluleMethode().Replace(
+                GabaritCelluleTable().Replace(
                     "{{ContenuCellule}}",
                     EncodeHTNL(Cellule1));
 
             if(Cellule2 != null)
                 Resultat +=
-                  GabaritCelluleMethode().Replace(
+                  GabaritCelluleTable().Replace(
                     "{{ContenuCellule}}",
                     EncodeHTNL(Cellule2));
 
             if (!string.IsNullOrEmpty(Cellule3))
                 Resultat +=
-                  GabaritCelluleMethode().Replace(
+                  GabaritCelluleTable().Replace(
                     "{{ContenuCellule}}",
                     EncodeHTNL(Cellule3));
 
