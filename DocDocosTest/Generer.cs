@@ -49,6 +49,9 @@ namespace MokaDocosTest
 
             String Resultat = 
                 File.ReadAllText(FR);
+            Assert.IsFalse(Resultat.Contains(
+                "{{Rangee}}"),
+                "{{Rangee}} toujours visible"); 
 
             Assert.IsTrue(Resultat.Contains(
                 "Ajoute un autre niveau à un path"),
