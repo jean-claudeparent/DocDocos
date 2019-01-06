@@ -10,6 +10,9 @@ namespace DocDocos
     /// </summary>
     public  class HTMLHelper
     {
+        private const  string Guid =
+            "!/$%svvhvbfhvbhk???hdhdhdhdhFFJH";
+
         /// <summary>
         /// Liste de toutes les bariables de 
         /// substitution utilisées
@@ -33,16 +36,27 @@ namespace DocDocos
             string IdentifiantVariable,
             string ContenuVariables)
         {
-            return HTNLGlobal.Replace(
-                IdentifiantVariable,
-                ContenuVariables + IdentifiantVariable); 
+            String Resultat = "";
+
+            if(IdentifiantVariable.Contains ("{{"))
+            {
+                Resultat =
+                    HTNLGlobal.Replace(
+                    IdentifiantVariable,
+                   ContenuVariables + Guid);
+                Resultat = Resultat .Replace(
+                Guid,
+                IdentifiantVariable);
+                return Resultat; 
+            }
+            else
+                throw new Exception(
+                    "Lavariable " +
+                    IdentifiantVariable +
+                    " doit être délimitée par {{ et }}"); 
         }
 
-        /// <summary>
-        /// Retourne le gabarit HTML
-        /// du conenu d'une page de méthode
-        /// </summary>
-        /// <returns>Gabarit</returns>
+         
         public string GabaritInterne()
         {
             return 
