@@ -2,15 +2,24 @@
 <package >
   <metadata>
     <id>org.jcassertion.DocDocos</id>
-    <version>0.2.0</version>
+    <version>0.2.1</version>
     <title>DocDocos Générateur de documentation</title>
     <authors>Jean-Claude Parent</authors>
     <owners>jean-claude.parent</owners>
     <license type="expression">MIT</license>
-    <projectUrl>https://github.com/noursicain/DocDocos/</projectUrl>
+    <projectUrl>https://docdocos.jcassertion.org/</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Une composante pour créer un site web simple à partir du fichier xml de documentation généré par Visual Studio</description>
-    <releaseNotes>Crée les pages du site, mets le summary et crée les hyoerliens entre  les pages.</releaseNotes>
+    <description>Une composante pour créer un site web simple à partir du fichier xml de documentation généré par Visual Studio.
+    Pour l'instant la composante crée une page web pour chaque membre du fichier de documentation. Elle créer ensuite les pages manquantes
+    pour qu'une vue hierarchique des membres soit possible.
+    Elle met le summarydans les pages des membres qui en ont un.
+    Enfin elle créer des hyper liens entre les pages. 
+    
+    Implémentation en .net framework 4.5 et net core 2.1.
+    mets le summary et crée les hyperliens entre  les pages.
+    </description>
+    <summary>Une composante pour créer un site web simple à partir du fichier xml de documentation généré par Visual Studio</summary>
+    <releaseNotes>Changer l'URL du projet et meilleur traitement des exceptions.</releaseNotes>
     <copyright>Copyright 2018,2019 Jean-Claude Parent</copyright>
     <language>fr-CA</language>
     

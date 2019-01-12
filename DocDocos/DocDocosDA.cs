@@ -188,7 +188,7 @@ namespace DocDocos
                     Temp = new EntiteDocument (cle);
                 TraiterItem(ref Temp);
                 MAJDict(cle, Temp);
-                MAJDictParent(cle, Temp);
+                MAJDictParent(Temp);
 
 
 
@@ -226,6 +226,7 @@ namespace DocDocos
 
         private void PublierTout()
         {
+
             EntiteDocument Courant =
                 new EntiteDocument();
 
@@ -235,6 +236,8 @@ namespace DocDocos
             foreach (var cle in Cles)
             {
                 Courant = GetEntiteDoc(cle);
+                Courant.Information = 
+                    HHêlper.MenageHTNL(Courant.Information);  
                 Publier(Courant.NomFichier, cle,
                     Courant.Information );
 
@@ -244,26 +247,7 @@ namespace DocDocos
         }
 
 
-
-        /// <summary>
-        /// Retourne le innertext d'un
-        /// élément xml ou
-        /// retourne la valeursinukk si
-        /// l'élémenyesy à null
-        /// </summary>
-        /// <param name="Valeur">Élément XML à traiter</param>
-        /// <param name="ValeurSiNull">String à retourner si l'élément est null</param>
-        /// <returns></returns>
-        private string nvlXML(
-            XmlNode Valeur,
-            string ValeurSiNull = "")
-        {
-            if (Valeur == null)
-                return ValeurSiNull;
-            else
-                return Valeur.InnerText; 
-        }
-
+        
         private void AjouterDictionnaire(
             XElement  NoeudDict)
         {
@@ -315,6 +299,11 @@ namespace DocDocos
         /// </summary>
         public void AjouterToutDict()
         {
+            if (!File.Exists(FichierXMLDoc))
+                throw new FileNotFoundException(
+                    "Le fichier XML de documentation <" +
+                    FichierXMLDoc +
+                    "> est introuvable ou innacessible.");
             
             Doc = XDocument.Load(FichierXMLDoc);
 
@@ -367,7 +356,6 @@ namespace DocDocos
         }
 
         private void MAJDictParent(
-            string  cle,
             EntiteDocument  Enfant)
         {
             string CleParent = Enfant.NomParent();
@@ -380,9 +368,24 @@ namespace DocDocos
                 throw new Exception(
                     "Erreur de logicque dans la programmation, l'entrée de dictionnnaire " +
                     CleParent +
-                    " n'a pas son information initialisée avec le gabarit interne html"); 
-                
-                }
+                    " n'a pas son information initialisée avec le gabarit interne html");
+            // faire le travail
+            string InfoEnfant = 
+                HHêlper.CreerRangee(
+                    HHêlper.ConstruireLien(
+                        Enfant.NomFichier,
+                      Enfant.Nom),
+                    Enfant.Sommaire);
+            Parent.Information =
+                HHêlper.ConstruireHTML(
+                   Parent.Information,
+                   "{{Rangee}}",
+                   InfoEnfant);
+            MAJDict(CleParent, Parent );
+            
+
+             
+        }
 
 
 
