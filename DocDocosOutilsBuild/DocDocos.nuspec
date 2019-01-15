@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>org.jcassertion.DocDocos</id>
-    <version>0.2.1</version>
+    <version>0.2.2</version>
     <title>DocDocos Générateur de documentation</title>
     <authors>Jean-Claude Parent</authors>
     <owners>jean-claude.parent</owners>
@@ -16,7 +16,6 @@
     Enfin elle créer des hyper liens entre les pages. 
     
     Implémentation en .net framework 4.5 et net core 2.1.
-    mets le summary et crée les hyperliens entre  les pages.
     </description>
     <summary>Une composante pour créer un site web simple à partir du fichier xml de documentation généré par Visual Studio</summary>
     <releaseNotes>Changer l'URL du projet et meilleur traitement des exceptions.</releaseNotes>

@@ -64,7 +64,11 @@ namespace MokaDocosTest
         public void GenererHTMLGros()
         {
             IO monIO = new IO();
-            DocDocosDA monGenerateur = new DocDocosDA();
+            string GabaritVersionne = monIO.AjouterCheminFichier(
+                monIO.RepertoireAssembly(),
+                "DocDocos-gabarit.htm");  
+            DocDocosDA monGenerateur = 
+                new DocDocosDA(GabaritVersionne);
             monGenerateur.RepertoireSortie = monIO.RepertoireAssembly();
             monGenerateur.RepertoireSortie = monIO.AjouterCheminFichier(
                 monGenerateur.RepertoireSortie,
@@ -87,10 +91,14 @@ namespace MokaDocosTest
             monGenerateur.FichierXMLDoc = monIO.AjouterCheminFichier(
             Temp, "JCAssertionnCore.xml");
             monGenerateur.GenererHTML();
-            Assert.IsTrue(File.Exists(repres +
-                "JCAssertionCore.html"),
-                "Il manque le fichier JCAssertionCore.html");
+            string FichierCree = repres +
+                "JCAssertionCore.htm";
 
+            Assert.IsTrue(File.Exists(FichierCree),
+                "Il manque le fichier JCAssertionCore.html");
+            Assert.IsFalse(File.ReadAllText(FichierCree).Contains(
+                "Gabaroit spécifié par le unit test"),
+                "Le commentaire de version de gabarit est absent "); 
 
 
         }
