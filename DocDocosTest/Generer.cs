@@ -66,7 +66,7 @@ namespace MokaDocosTest
             IO monIO = new IO();
             string GabaritVersionne = monIO.AjouterCheminFichier(
                 monIO.RepertoireAssembly(),
-                "DocDocos-gabarit.htm");  
+                "GabaritUnitTest.htm");  
             DocDocosDA monGenerateur = 
                 new DocDocosDA(GabaritVersionne);
             monGenerateur.RepertoireSortie = monIO.RepertoireAssembly();
@@ -95,9 +95,10 @@ namespace MokaDocosTest
                 "JCAssertionCore.htm";
 
             Assert.IsTrue(File.Exists(FichierCree),
-                "Il manque le fichier JCAssertionCore.html");
+                "Il manque le fichier " +
+                FichierCree);
             Assert.IsFalse(File.ReadAllText(FichierCree).Contains(
-                "Gabaroit spécifié par le unit test"),
+                "Gabarit spécifié par le unit test"),
                 "Le commentaire de version de gabarit est absent "); 
 
 

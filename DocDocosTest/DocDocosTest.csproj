@@ -30,9 +30,13 @@
     <Compile Remove="IO.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Remove="GabaritUnitTest.htm" />
     <None Remove="Ressources\JCAssertionnCore.xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="GabaritUnitTest.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Ressources\JCAssertionnCore.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
