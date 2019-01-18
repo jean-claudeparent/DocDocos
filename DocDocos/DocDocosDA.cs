@@ -20,8 +20,8 @@ namespace DocDocos
     public class DocDocosDA
     {
        
-        IO monIO = new IO();
-        HTMLHelper HHêlper = new HTMLHelper();
+        private  IO monIO = new IO();
+        private HTMLHelper HHêlper = new HTMLHelper();
          
         /// <summary>
         /// Constructeur qui peut accepter
@@ -34,18 +34,16 @@ namespace DocDocos
         {
             if (string.IsNullOrEmpty(FichierGabaritOptionnel))
             {
-                string Chemin = 
-                monIO.RepertoireAssembly();
-                Chemin = monIO.AjouterCheminFichier(Chemin,
-                                                "DocDocos-gabarit.html");
-                if (File.Exists(Chemin))
-                    Gabarit = File.ReadAllText(Chemin);
-                else
-                    Gabarit = HTMLHelper.GabaritDemo();
+                Gabarit = HTMLHelper.GabaritDemo();
             } else
             {
                 if (File.Exists(FichierGabaritOptionnel))
+                {
+                    ExtensionFichier = Path.GetExtension(FichierGabaritOptionnel);
+
                     Gabarit = File.ReadAllText(FichierGabaritOptionnel);
+
+                }
                 else
                     throw new Exception("Le fichier de gabarit "+
                         FichierGabaritOptionnel +
@@ -60,6 +58,12 @@ namespace DocDocos
         /// pluscourts.
         /// </summary>
         public Int32 RaccourciFichier = 1;
+        
+        /// <summary>
+        /// Extension des fichiers html gémérés,
+        /// avec le point. Valeur par défaut ".html"
+        /// </summary>
+        public string ExtensionFichier = ".html";
 
         /// <summary>
         /// Chemin et nom du fichier de documentation xml à traiter
