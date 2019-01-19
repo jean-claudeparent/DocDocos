@@ -20,7 +20,7 @@ namespace MokaDocosTest
             Assert.AreEqual("c__app_test1.html",
                 monMoka.NormaliserNomFichier(
                     "c:\\app/test(ceciestenleve)"));
-            Assert.AreEqual("c__app_test2",
+            Assert.AreEqual("c__app_test2.html",
                monMoka.NormaliserNomFichier("c:\\app/test(ceciestenleve)",""));
         }
 

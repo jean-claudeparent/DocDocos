@@ -97,7 +97,8 @@ namespace MokaDocosTest
             Assert.IsTrue(File.Exists(FichierCree),
                 "Il manque le fichier " +
                 FichierCree);
-            Assert.IsFalse(File.ReadAllText(FichierCree).Contains(
+            Assert.IsTrue(File.ReadAllText(
+                FichierCree).Contains(
                 "Gabarit spécifié par le unit test"),
                 "Le commentaire de version de gabarit est absent "); 
 

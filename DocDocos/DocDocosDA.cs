@@ -352,7 +352,7 @@ namespace DocDocos
                 RaccourciFichier = RaccourciFichier + 1;
             }
 
-            Resultat += Extension;
+            Resultat += ExtensionFichier;
 
             return Resultat;
 
