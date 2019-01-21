@@ -10,6 +10,14 @@ using System.Xml.Linq;
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml;
+using System.Reflection;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
+
+
+
+[assembly: InternalsVisibleTo("DocDocosTest")]
+
 
 
 namespace DocDocos

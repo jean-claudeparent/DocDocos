@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>org.jcassertion.DocDocos</id>
-    <version>0.2.2</version>
+    <version>0.3.0</version>
     <title>DocDocos Générateur de documentation</title>
     <authors>Jean-Claude Parent</authors>
     <owners>jean-claude.parent</owners>

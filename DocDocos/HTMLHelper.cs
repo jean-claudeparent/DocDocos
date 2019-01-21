@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
+
+
+
 namespace DocDocos
 {
     /// <summary>
@@ -18,7 +21,7 @@ namespace DocDocos
         /// substitution utilisées
         /// </summary>
         /// <returns></returns>
-        public  static List<string> Variables()
+        public   static List<string> Variables()
         {
              List<string> Resultat =
                    new List<string>();
@@ -39,7 +42,7 @@ namespace DocDocos
         /// <param name="IdentifiantVariable">Identifiant de la variables comme par exemple {{Rangee}}</param>
         /// <param name="ContenuVariables">Valeur de la variable avec le HTML déjà encodé</param>
         /// <returns>HTML avec les variables substituée par leur valeurs</returns>
-        public string ConstruireHTML(
+        internal  string ConstruireHTML(
             string HTNLGlobal,
             string IdentifiantVariable,
             string ContenuVariables)
@@ -68,7 +71,7 @@ namespace DocDocos
         /// restants dans le HTML
         /// </summary>
         /// <returns></returns>
-        public string  MenageHTNL(
+        internal  string  MenageHTNL(
             string HTML)
         {
             string  Resultat = HTML;
@@ -84,7 +87,7 @@ namespace DocDocos
         /// l'infomration dans lapage.
         /// </summary>
         /// <returns></returns>
-        public string GabaritInterne()
+        internal  string GabaritInterne()
         {
             return 
                 GabaritSummary() +
@@ -98,7 +101,7 @@ namespace DocDocos
         /// <param name="URL"></param>
         /// <param name="Nom"></param>
         /// <returns></returns>
-        public string ConstruireLien(
+        internal  string ConstruireLien(
             string URL,
             string Nom)
         {
@@ -193,7 +196,7 @@ namespace DocDocos
         /// <param name="Cellule2"></param>
         /// <param name="Cellule2"></param>
         /// <returns>HTML créé</returns>
-        public  string CreerRangee(
+        internal   string CreerRangee(
             string Cellule1,
             string Cellule2 = null,
             string Cellule3 = null)
