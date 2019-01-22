@@ -106,7 +106,7 @@ namespace DocDocos
             string Nom)
         {
             return "<a href=\"" + URL + "\">" +
-                EncodeHTNL(Nom) + "</a>";
+                EncodeHTML(Nom) + "</a>";
         }
 
     /// <summary>
@@ -173,7 +173,7 @@ namespace DocDocos
         /// </summary>
         /// <param name="HTNL"></param>
         /// <returns></returns>
-        public String EncodeHTNL(
+        internal  String EncodeHTML(
             string HTNL)
         {
             HTNL = HTNL.Replace("<", "&lt;");
