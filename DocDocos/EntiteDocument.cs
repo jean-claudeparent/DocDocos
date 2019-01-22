@@ -5,9 +5,9 @@ using System.Text;
 
 namespace DocDocos
 {
-    public class EntiteDocument
+    internal  class EntiteDocument
     {
-        public  EntiteDocument(
+        internal   EntiteDocument(
             string leNom = null)
         {
             if (leNom != null)
@@ -19,11 +19,11 @@ namespace DocDocos
         private TypeEntiteDocument _TypeEntite = 
             TypeEntiteDocument.Inconnu;
 
-        public  string NomFichier = "";
+        internal   string NomFichier = "";
 
-        
 
-        public TypeEntiteDocument TypeEntite
+
+        internal TypeEntiteDocument TypeEntite
         {
             get
             {
@@ -31,12 +31,12 @@ namespace DocDocos
             }
         }
 
-        public string Sommaire
+        internal string Sommaire
         { get; set; }
 
         private string _Nom = "";
 
-        public string Nom
+        internal string Nom
         { get
             {
                 return _Nom;
@@ -81,7 +81,7 @@ namespace DocDocos
         }
 
 
-        public string Namespace
+        internal string Namespace
         {
             get
             {
@@ -92,7 +92,7 @@ namespace DocDocos
 
         private string[] _Niveaux = new string[0];
 
-        public string Niveau(
+        internal string Niveau(
             int QuelNiveau)
         {
             try
@@ -111,16 +111,16 @@ namespace DocDocos
                     ex.Message,ex ); 
             }
         }
-            
 
-        public int NombreNiveaux()
+
+        internal int NombreNiveaux()
         {
             return _Niveaux.Length;
         }
 
-        public string Information = "";
+        internal string Information = "";
 
-        public  string  EncodeType()
+        internal string  EncodeType()
         {
             switch (TypeEntite)
                 {
@@ -133,7 +133,7 @@ namespace DocDocos
             }
         }
 
-        public String NomParent()
+        internal String NomParent()
         {
             string Resultat = "";
 

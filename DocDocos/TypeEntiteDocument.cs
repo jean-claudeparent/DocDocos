@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DocDocos
 {
-    public enum TypeEntiteDocument
+    internal enum TypeEntiteDocument
     {
         Inconnu,
         Classe,

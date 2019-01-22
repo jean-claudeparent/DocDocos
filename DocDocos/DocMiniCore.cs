@@ -19,7 +19,7 @@ namespace DocDocos
         /// </summary>
         /// <param name="Fichier">Mom du fichier pour lequel il faut déterminer l'encodage</param>
         /// <returns>Type d'encodage</returns>
-        public static Encoding TypeEncodage(
+        internal  static Encoding TypeEncodage(
             String Fichier)
             {
                 
@@ -61,7 +61,7 @@ namespace DocDocos
         /// Efface un fichier s'il existe
         /// </summary>
         /// <param name="NomFichier">Nom du fichier à efface avec son chemin</param>
-        public static void EffaceFichier(
+        internal  static void EffaceFichier(
             String NomFichier)
             {
                 if (System.IO.File.Exists(NomFichier ))
@@ -75,7 +75,7 @@ namespace DocDocos
         /// </summary>
         /// <param name="NomFichier">Nom du fichier à rendre conforme</param>
         /// <returns>Nom compatible avec le système de fichier de windows</returns>
-        public static String NomValide(
+        internal  static String NomValide(
             String NomFichier) 
             {
                 String Resultat = "";
@@ -90,7 +90,7 @@ namespace DocDocos
                 return Resultat; 
             }
 
-        public static Int64 CompteFichiers(
+        internal  static Int64 CompteFichiers(
             String Repertoire,
             String  Pattern = "*.*")
             {
@@ -105,13 +105,13 @@ namespace DocDocos
                 return 0;
             }
         
-        public static String  DateHeure()
+        internal  static String  DateHeure()
             {
                 return DateTime.Now.ToLongDateString() + " " +  
                    DateTime.Now.ToLongTimeString();
             }
 
-        public static Int32  ConvertirSansErreur(
+        internal  static Int32  ConvertirSansErreur(
             String Nombre)
         {
             try {
