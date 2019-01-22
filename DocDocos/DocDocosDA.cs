@@ -65,7 +65,7 @@ namespace DocDocos
         /// d'entiteDocument pour donner des noms de fichiers 
         /// pluscourts.
         /// </summary>
-        public Int32 RaccourciFichier = 1;
+        private  Int32 RaccourciFichier = 1;
         
         /// <summary>
         /// Extension des fichiers html gémérés,
@@ -86,11 +86,11 @@ namespace DocDocos
         /// <summary>
         /// Contenu du gabarit qui sera utilisé pour générer les pages du site.
         /// </summary>
-        public string Gabarit;
+        private  string Gabarit;
 
 
         private XDocument Doc = new XDocument();
-        public string NomNamespace;
+        private  string NomNamespace;
         private   Dictionary<string, EntiteDocument> Dictionnaire =
             new Dictionary<string, EntiteDocument>();
 
@@ -118,7 +118,7 @@ namespace DocDocos
         /// <param name="Fichier">Chemin complet du fichierhtml à écrire</param>
         /// <param name="Titre">Titre de la page web</param>
         /// <param name="Contenu">Contenu HTML à insérer dans la page</param>
-        public void Publier(
+        internal   void Publier(
             string Fichier,
             string Titre,
             string Contenu)
@@ -142,7 +142,7 @@ namespace DocDocos
         /// </summary>
         /// <param name="Noeud">Noeud contenant l'information</param>
         /// <returns>L'entité document construite</returns>
-        public EntiteDocument TraiterNoeud(
+        internal  EntiteDocument TraiterNoeud(
             XElement   NoeudATraiter)
         {
             string Temp = "";
@@ -309,7 +309,7 @@ namespace DocDocos
         /// Ajouter chaque membre du fichier
         /// xml dans le dictionnaire.
         /// </summary>
-        public void AjouterToutDict()
+        internal  void AjouterToutDict()
         {
             if (!File.Exists(FichierXMLDoc))
                 throw new FileNotFoundException(
@@ -336,7 +336,7 @@ namespace DocDocos
         }
 
 
-        public EntiteDocument GetEntiteDoc(
+        internal  EntiteDocument GetEntiteDoc(
             String Cle)
         {
             EntiteDocument Resultat;
@@ -346,7 +346,7 @@ namespace DocDocos
         }
 
 
-        public string NormaliserNomFichier(
+        internal  string NormaliserNomFichier(
             String NomANormaliser,
             string Extension = ".html")
         {

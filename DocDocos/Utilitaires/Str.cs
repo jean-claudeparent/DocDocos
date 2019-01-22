@@ -8,7 +8,7 @@ namespace DocDocos
         /// </summary>
         /// <param name="Chaine"></param>
         /// <returns></returns>
-        public string DernierC(string Chaine)
+        internal  string DernierC(string Chaine)
         {
             if (Chaine == null) return "";
             if (Chaine == "") return "";
@@ -16,7 +16,7 @@ namespace DocDocos
 
         }
 
-        public string ValeurSQL(
+        internal   string ValeurSQL(
             string ValeurTexte)
         {
             if (ValeurTexte == null)
@@ -28,7 +28,7 @@ namespace DocDocos
         }
 
 
-        public String ExceptionData(
+        internal  String ExceptionData(
             Exception ex)
         {
             String Resultat = "";
@@ -48,7 +48,7 @@ namespace DocDocos
         /// caractère qui sont acvant un certains caractère
         /// </summary>
         /// <returns></returns>
-        public static string Debut(
+        internal  static string Debut(
             string Chaine,
             string Separateur)
         {

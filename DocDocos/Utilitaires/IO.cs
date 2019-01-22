@@ -12,7 +12,7 @@ namespace DocDocos
         Str UStr = new Str();
 
 
-        public string RepertoireAssembly()
+        internal   string RepertoireAssembly()
         {
             return Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ;
 
@@ -26,7 +26,7 @@ namespace DocDocos
         /// <param name="Chemin"></param>
         /// <param name="Ajout"></param>
         /// <returns></returns>
-        public string AjouterCheminFichier(
+        internal  string AjouterCheminFichier(
            string Chemin,
            string Ajout)
         {
@@ -45,7 +45,7 @@ namespace DocDocos
 
         } // nethode
 
-        public bool Windows()
+        internal  bool Windows()
         {
             if (Path.DirectorySeparatorChar.ToString() == "\\")
                 return true;
@@ -54,7 +54,7 @@ namespace DocDocos
         }
 
 
-        public string RepertoireTravail()
+        internal  string RepertoireTravail()
         {
             if (RepertoireAssembly().Contains(
                 "/PROD/"))
