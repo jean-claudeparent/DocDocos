@@ -18,8 +18,7 @@
     Implémentation en .net framework 4.5 et net core 2.1.
     </description>
     <summary>Une composante pour créer un site web simple à partir du fichier xml de documentation généré par Visual Studio</summary>
-    <releaseNotes>Accepter un fichier de gabarit dans le 
-    constructeur et permettre n'importe quelle extension de fichier pour le gabarit.</releaseNotes>
+    <releaseNotes>Ratonalisation des méthodes publiques.</releaseNotes>
     <copyright>Copyright 2018,2019 Jean-Claude Parent</copyright>
     <language>fr-CA</language>
     

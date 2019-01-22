@@ -9,9 +9,9 @@
             Ajoute un autre niveau à un path
             de fichier
             </summary>
-            <param name="Chemin"></param>
-            <param name="Ajout"></param>
-            <returns></returns>
+            <param name="Chemin">Chemin du répertoire auquel on ajoute un niveau.</param>
+            <param name="Ajout">Niveau à ajouter</param>
+            <returns>Le chemin avec l'ajout avec le séparateur correct pour le système d'exploitation</returns>
         </member>
         <member name="M:JCUtilitaires.Str.DernierC(System.String)">
             <summary>
