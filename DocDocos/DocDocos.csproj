@@ -28,7 +28,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="DocDocos-gabarit.html">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
 </Project>
