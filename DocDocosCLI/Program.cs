@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using DocDocos;
 
 
 namespace DocDocosCLI
@@ -13,7 +14,9 @@ namespace DocDocosCLI
 
         static void Main(string[] args)
         {
-            if (ArgumentInvalide(args))
+            try
+            { 
+              if (ArgumentInvalide(args))
             {
                 Console.WriteLine("Usage:");
                 Console.WriteLine(
@@ -23,23 +26,46 @@ namespace DocDocosCLI
 
             }
 
-            if(!File.Exists(monFichierXML))
-            {
-                Console.WriteLine("Il y a un problème avec le fichier xml " +
-                    monFichierXML);
-                Environment.Exit(99);  
-            }
+              if(!File.Exists(monFichierXML))
+              {
+                  Console.WriteLine("Il y a un problème avec le fichier xml " +
+                      monFichierXML);
+                  Environment.Exit(99);  
+              }
 
-            if ((!string.IsNullOrEmpty(monGabarit )) && 
-                (!File.Exists(monGabarit)))
+              if ((!string.IsNullOrEmpty(monGabarit )) && 
+                  (!File.Exists(monGabarit)))
             {
                 Console.WriteLine("Il y a un problème avec le fichier de gabarit " +
                     monGabarit );
                 Environment.Exit(99);
             }
-        }
 
-        private static bool ArgumentInvalide(
+              // Traiter
+              DocDocosDA Generateur;
+              if (string.IsNullOrEmpty(monGabarit))
+                  Generateur = new DocDocosDA();
+              else
+                  Generateur = new DocDocosDA(monGabarit);
+
+              Generateur.FichierXMLDoc = monFichierXML;
+              Generateur.RepertoireSortie = 
+                  monRepertoireSortie;
+              Console.WriteLine("Génération du site dans : " +
+                  Generateur.RepertoireSortie);
+              Generateur.GenererHTML();
+            } catch (Exception ex)
+             {
+                Console.WriteLine("Erreur technique" +Environment.NewLine +
+                   ex.ToString() );
+                Environment.Exit(99);  
+
+             }
+            }
+
+
+
+        private  static bool ArgumentInvalide(
             string[] args)
         {
             if (args.Length < 4 )
