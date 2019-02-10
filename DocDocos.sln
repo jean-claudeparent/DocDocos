@@ -8,9 +8,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DocDocosTest", "DocDocosTes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocDocosOutilsBuild", "DocDocosOutilsBuild\DocDocosOutilsBuild.csproj", "{3F9A4274-3AB7-422A-8C31-08979B7CAD34}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocDocosCLI", "DocDocosCLI\DocDocosCLI.csproj", "{FB05FA42-7372-44D3-BBC8-9A5943307DDE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DocDocosCLI", "DocDocosCLI\DocDocosCLI.csproj", "{FB05FA42-7372-44D3-BBC8-9A5943307DDE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocDocos45", "DocDocos45\DocDocos45.csproj", "{677DA024-A862-4D3B-B956-75EF57D75F13}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocDocosCLITest", "DocDocosCLITest\DocDocosCLITest.csproj", "{104CE6A6-CE52-4404-AA51-125C26EF8CD9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,6 +40,10 @@ Global
 		{677DA024-A862-4D3B-B956-75EF57D75F13}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{677DA024-A862-4D3B-B956-75EF57D75F13}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{677DA024-A862-4D3B-B956-75EF57D75F13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{104CE6A6-CE52-4404-AA51-125C26EF8CD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{104CE6A6-CE52-4404-AA51-125C26EF8CD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{104CE6A6-CE52-4404-AA51-125C26EF8CD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{104CE6A6-CE52-4404-AA51-125C26EF8CD9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

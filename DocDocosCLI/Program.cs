@@ -1,18 +1,28 @@
 ﻿using System;
 using System.IO;
 using DocDocos;
+using System.Reflection;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
+
+
+[assembly: InternalsVisibleTo("DocDocosCLITest")]
+
+
 
 
 namespace DocDocosCLI
 {
-    class Program
+    internal class Program
     {
-        static string monRepertoireSortie;
-        static string monFichierXML;
-        static string monGabarit;
+        internal static  Boolean UnitTest = false;
+        internal static string monRepertoireSortie;
+        internal static string monFichierXML;
+        internal static string monGabarit;
+        internal int CodeRetour = 0;
 
 
-        static void Main(string[] args)
+        public  static void Main(string[] args)
         {
             try
             { 
