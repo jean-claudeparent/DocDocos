@@ -19,7 +19,7 @@ namespace DocDocosCLI
         internal static string monRepertoireSortie;
         internal static string monFichierXML;
         internal static string monGabarit;
-        internal int CodeRetour = 0;
+        
 
 
         public  static void Main(string[] args)
@@ -27,29 +27,27 @@ namespace DocDocosCLI
             try
             { 
               if (ArgumentInvalide(args))
-            {
-                Console.WriteLine("Usage:");
-                Console.WriteLine(
-                    "     DocFocos -f ficgierdix.xml " +
-                    "-r repertoiresortie [-g gabarit.html]");
-                Environment.Exit(99);  
-
-            }
+                 {
+                    Terminer(99,"Usage:" + Environment.NewLine + 
+                        "     DocFocos -f ficgierdix.xml " +
+                        "-r repertoiresortie [-g gabarit.html]");
+                 }
 
               if(!File.Exists(monFichierXML))
               {
-                  Console.WriteLine("Il y a un problème avec le fichier xml " +
+                    Terminer(99,
+                        "Il y a un problème avec le fichier xml : " +
                       monFichierXML);
-                  Environment.Exit(99);  
               }
 
               if ((!string.IsNullOrEmpty(monGabarit )) && 
                   (!File.Exists(monGabarit)))
-            {
-                Console.WriteLine("Il y a un problème avec le fichier de gabarit " +
+              {
+                    Terminer(99,
+                        "Il y a un problème avec le fichier de gabarit : " +
                     monGabarit );
-                Environment.Exit(99);
-            }
+                
+              }
 
               // Traiter
               DocDocosDA Generateur;
@@ -66,14 +64,29 @@ namespace DocDocosCLI
               Generateur.GenererHTML();
             } catch (Exception ex)
              {
-                Console.WriteLine("Erreur technique" +Environment.NewLine +
-                   ex.ToString() );
-                Environment.Exit(99);  
+                Terminer(99,
+                    "Erreur technique" +
+                    Environment.NewLine +
+                    ex.ToString() );
+                  
 
              }
             }
 
-
+        private static void Terminer(
+            int CodeDeRetour,
+            string Message)
+        {
+            Console.WriteLine(Message);
+            if (!UnitTest)
+                Environment.Exit(CodeDeRetour);
+            else
+                throw new Exception("Code retour : " +
+                    CodeDeRetour.ToString ()+
+                    "message de console : " +
+                    Message); 
+            
+        }
 
         private  static bool ArgumentInvalide(
             string[] args)
