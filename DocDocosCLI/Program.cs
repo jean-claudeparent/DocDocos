@@ -26,10 +26,11 @@ namespace DocDocosCLI
         {
             try
             { 
-              if (ArgumentInvalide(args))
+              if ((args.Length < 4) || 
+                    (ArgumentInvalide(args)))
                  {
                     Terminer(99,"Usage:" + Environment.NewLine + 
-                        "     DocFocos -f ficgierdix.xml " +
+                        "     DocFocos -f ficgierdoc.xml " +
                         "-r repertoiresortie [-g gabarit.html]");
                  }
 
