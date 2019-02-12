@@ -26,29 +26,14 @@ namespace DocDocosCLI
         {
             try
             { 
-              if ((args.Length < 4) || 
-                    (ArgumentInvalide(args)))
-                 {
+              if (! (args.Length < 4))  
+                    ExtraireArgument(args);
+                else 
                     Terminer(99,"Usage:" + Environment.NewLine + 
                         "     DocFocos -f ficgierdoc.xml " +
                         "-r repertoiresortie [-g gabarit.html]");
-                 }
-
-              if(!File.Exists(monFichierXML))
-              {
-                    Terminer(99,
-                        "Il y a un problème avec le fichier xml : " +
-                      monFichierXML);
-              }
-
-              if ((!string.IsNullOrEmpty(monGabarit )) && 
-                  (!File.Exists(monGabarit)))
-              {
-                    Terminer(99,
-                        "Il y a un problème avec le fichier de gabarit : " +
-                    monGabarit );
-                
-              }
+                ValiderArguments();
+              
 
               // Traiter
               DocDocosDA Generateur;
@@ -64,15 +49,15 @@ namespace DocDocosCLI
                   Generateur.RepertoireSortie);
               Generateur.GenererHTML();
             } catch (Exception ex)
-             {
+            {
                 Terminer(99,
                     "Erreur technique" +
                     Environment.NewLine +
                     ex.ToString() );
                   
 
-             }
             }
+        }
 
         private static void Terminer(
             int CodeDeRetour,
@@ -89,11 +74,10 @@ namespace DocDocosCLI
             
         }
 
-        private  static bool ArgumentInvalide(
+        private  static void  ExtraireArgument(
             string[] args)
         {
-            if (args.Length < 4 )
-                return false;
+            
             for (int i=0; i < (args.Length - 1); i++)
             {
                 if (args[i].ToUpper() == "-F")
@@ -103,12 +87,29 @@ namespace DocDocosCLI
                 if (args[i].ToUpper() == "-R")
                     monRepertoireSortie  = args[i + 1];
             }
-            if (string.IsNullOrEmpty(monFichierXML))
-                return false ;
-            if (string.IsNullOrEmpty(monRepertoireSortie ))
-                return false;
+            
 
-            return true; 
+            
         }
+
+        private static void ValiderArguments()
+        {
+            if (string.IsNullOrEmpty(monFichierXML))
+               Terminer(99,
+                        "Le fichier xml n'a pas été spécifié"); 
+
+              if (!File.Exists(monFichierXML))
+                     Terminer(99,
+                         "Il y a un problème avec le fichier xml : " +
+                          monFichierXML);
+              
+
+              if ((!string.IsNullOrEmpty(monGabarit )) && 
+                  (!File.Exists(monGabarit)))
+                Terminer(99,
+                   "Il y a un problème avec le fichier de gabarit : " +
+                    monGabarit );
+        }
+
     }
 }

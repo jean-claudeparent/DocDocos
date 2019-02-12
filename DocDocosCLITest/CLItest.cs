@@ -12,7 +12,7 @@ namespace DocDocosCLITest
         {
             DocDocosCLI.Program.UnitTest = true;
 
-            //Argument voide
+            //Argument vide
             try
             {
                 DocDocosCLI.Program.Main(new string[0]);
@@ -27,6 +27,30 @@ namespace DocDocosCLITest
                     "DocFocos -f ficgierdoc.xml -r repertoiresortie [-g gabarit.html]"),
                     "Erreur :" + ex.ToString());
             }
+
+            //Argument^pas de -f
+            try
+            {
+                string[] args = new string[4];
+                args[0] = "-g";
+                args[1] = "gabarit";
+                args[2] = "-r";
+                args[3] = "répertoire";
+                
+                DocDocosCLI.Program.Main(args);
+                Assert.Fail(
+                    "Une exception aurait dû se produire");
+            }
+            catch (Exception ex)
+            {
+                Assert.IsTrue(ex.Message.Contains(
+                    "Usage"),
+                    "Erreur :" + ex.ToString());
+                Assert.IsTrue(ex.Message.Contains(
+                    "DocFocos -f ficgierdoc.xml -r repertoiresortie [-g gabarit.html]"),
+                    "Erreur :" + ex.ToString());
+            }
+
 
 
         }
