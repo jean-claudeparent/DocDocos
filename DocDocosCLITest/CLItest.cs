@@ -1,6 +1,8 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using DocDocosCLI;
 using System;
+using System.IO;
+
 
 namespace DocDocosCLITest
 {
@@ -28,6 +30,7 @@ namespace DocDocosCLITest
                     "Erreur :" + Program.MessageUT);
                 Assert.AreEqual(99, Program.CodeRetourUT); 
             }
+            
 
             //Argument^pas de -f
             try
@@ -51,6 +54,58 @@ namespace DocDocosCLITest
                     Program.CodeRetourUT);                     
             }
 
+
+            // fichier xml existe pas
+            try
+            {
+                string[] args = new string[4];
+                args[0] = "-f";
+                args[1] = "fichier xml n'existe pas";
+                args[2] = "-r";
+                args[3] = "répertoire";
+
+                DocDocosCLI.Program.Main(args);
+                Assert.Fail(
+                    "Une exception aurait dû se produire");
+            }
+            catch
+            {
+                Assert.IsTrue(Program.MessageUT.Contains(
+                    "Il y a un problème avec le fichier xml"),
+                    "Erreur casfichier inexistant :" + Program.MessageUT);
+                Assert.AreEqual(99,
+                    Program.CodeRetourUT);
+            }
+
+
+            // modele existe pas
+            string NomFich = "testc.xml";
+            File.WriteAllText(NomFich, NomFich + "<<<");
+            try
+            {
+                Program.MessageUT = "";
+                string[] args = new string[4];
+                args[0] = "-f";
+                args[1] = NomFich;
+                args[2] = "-g";
+                args[3] = "c:existepas";
+
+                DocDocosCLI.Program.Main(args);
+                Assert.Fail(
+                    "Une exception aurait dû se produire");
+            }
+            catch
+            {
+                Assert.IsTrue(Program.MessageUT.Contains(
+                    "Il y a un problème avec le fichier de gabarit : c:existepas"),
+                    "Erreur casfichier inexistant :" + Program.MessageUT);
+                Assert.AreEqual(99,
+                    Program.CodeRetourUT);
+            }
+
+
+            //todo recevoir exception du docdocosda
+            
 
 
         }

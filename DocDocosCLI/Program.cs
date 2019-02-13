@@ -51,11 +51,14 @@ namespace DocDocosCLI
               Generateur.GenererHTML();
             } catch (Exception ex)
             {
-                if (! UnitTest)
-                   Terminer(99,
-                      "Erreur technique" +
-                      Environment.NewLine +
-                      ex.ToString() );
+                if (!UnitTest)
+                    Terminer(99,
+                       "Erreur technique" +
+                       Environment.NewLine +
+                       ex.ToString());
+                else
+                    Console.WriteLine(ex.ToString() ); 
+                      
                   
 
             }
