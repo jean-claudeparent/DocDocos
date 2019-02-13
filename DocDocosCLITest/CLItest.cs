@@ -20,12 +20,13 @@ namespace DocDocosCLITest
                     "Une exception aurait dû se produire");
             } catch (Exception ex)
             {
-                Assert.IsTrue(ex.Message.Contains(
+                Assert.IsTrue(Program.MessageUT.Contains(
                     "Usage"),
-                    "Erreur :" + ex.ToString ());
-                Assert.IsTrue(ex.Message.Contains(
+                    "Erreur :" + Program.MessageUT);
+                Assert.IsTrue(Program.MessageUT.Contains(
                     "DocFocos -f ficgierdoc.xml -r repertoiresortie [-g gabarit.html]"),
-                    "Erreur :" + ex.ToString());
+                    "Erreur :" + Program.MessageUT);
+                Assert.AreEqual(99, Program.CodeRetourUT); 
             }
 
             //Argument^pas de -f
@@ -41,14 +42,13 @@ namespace DocDocosCLITest
                 Assert.Fail(
                     "Une exception aurait dû se produire");
             }
-            catch (Exception ex)
+            catch 
             {
-                Assert.IsTrue(ex.Message.Contains(
-                    "Usage"),
-                    "Erreur :" + ex.ToString());
-                Assert.IsTrue(ex.Message.Contains(
-                    "DocFocos -f ficgierdoc.xml -r repertoiresortie [-g gabarit.html]"),
-                    "Erreur :" + ex.ToString());
+                Assert.IsTrue(Program.MessageUT.Contains(
+                    "Le fichier xml n'a pas été spécifié"),
+                    "Erreur cas pas de -f :" + Program.MessageUT);
+                Assert.AreEqual(99,
+                    Program.CodeRetourUT);                     
             }
 
 

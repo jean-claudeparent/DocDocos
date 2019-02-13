@@ -19,9 +19,10 @@ namespace DocDocosCLI
         internal static string monRepertoireSortie;
         internal static string monFichierXML;
         internal static string monGabarit;
+        internal static  int  CodeRetourUT = 0;
+        internal static string MessageUT = "";
+
         
-
-
         public  static void Main(string[] args)
         {
             try
@@ -50,10 +51,11 @@ namespace DocDocosCLI
               Generateur.GenererHTML();
             } catch (Exception ex)
             {
-                Terminer(99,
-                    "Erreur technique" +
-                    Environment.NewLine +
-                    ex.ToString() );
+                if (! UnitTest)
+                   Terminer(99,
+                      "Erreur technique" +
+                      Environment.NewLine +
+                      ex.ToString() );
                   
 
             }
@@ -67,10 +69,13 @@ namespace DocDocosCLI
             if (!UnitTest)
                 Environment.Exit(CodeDeRetour);
             else
-                throw new Exception("Code retour : " +
-                    CodeDeRetour.ToString ()+
-                    "message de console : " +
-                    Message); 
+            {
+                CodeRetourUT = CodeDeRetour;
+                MessageUT = Message;
+                throw new Exception("Mode unit test");
+            }
+            
+                    
             
         }
 
