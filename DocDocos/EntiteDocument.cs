@@ -34,6 +34,11 @@ namespace DocDocos
         internal string Sommaire
         { get; set; }
 
+        internal string Retour
+        { get; set; }
+
+
+
         private string _Nom = "";
 
         internal string Nom
