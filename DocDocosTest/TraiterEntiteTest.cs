@@ -26,10 +26,9 @@ namespace DocDocosTest
             string innerxmlTest = "<member name=\"M:Unittestnamespace.IO.AjouterCheminFichier(System.String, System.String)\">" +
                 Environment.NewLine +
               "<summary>" +
-              Environment.NewLine +
+             
               "Ajoute un autre niveau à un path" +
-              Environment.NewLine +
-            "de fichier" + Environment.NewLine +
+              " de fichier" +
             "</summary>" + Environment.NewLine +
             "<param name=\"Chemin\">Chemin du répertoire auquel on ajoute un niveau.</param>" + Environment.NewLine +
             "<param name=\"Ajout\">Niveau à ajouter</param>" + Environment.NewLine +
@@ -41,7 +40,8 @@ namespace DocDocosTest
             monEntite = 
                 Generateur.TraiterNoeud(XMLTest);
 
-            Assert.AreEqual("erreur",
+            Assert.AreEqual(
+                "Ajoute un autre niveau à un path de fichier",
                 monEntite.Sommaire );
             Assert.AreEqual("Le chemin avec l'ajout avec le séparateur correct pour le système d'exploitation",
                 monEntite.Retour);
