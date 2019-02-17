@@ -18,7 +18,7 @@ namespace DocDocosTest
     public class TraiterEntiteTest
     {
         [TestMethod]
-        public void ParametresTest()
+        public void ParametresParXMLTest()
         {
             DocDocosDA Generateur = new DocDocosDA();
             EntiteDocument monEntite = new EntiteDocument();
@@ -32,8 +32,8 @@ namespace DocDocosTest
             "</summary>" + Environment.NewLine +
             "<param name=\"Chemin\">Chemin du répertoire auquel on ajoute un niveau.</param>" + Environment.NewLine +
             "<param name=\"Ajout\">Niveau à ajouter</param>" + Environment.NewLine +
-            "<returns>Le chemin avec l'ajout avec le séparateur correct pour le système d'exploitation</returns>" + Environment.NewLine +
-            "</member> ";
+            "<return>Le chemin avec l'ajout avec le séparateur correct pour le système d'exploitation</return>" + Environment.NewLine +
+            "</member> "; 
 
             XElement  XMLTest = 
                  XElement.Parse(innerxmlTest);

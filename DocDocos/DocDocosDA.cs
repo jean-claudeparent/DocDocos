@@ -174,8 +174,12 @@ namespace DocDocos
                         "Exception originale " + ex.ToString() );
                 }
             } // if
-        
-            
+            // traiter la balise returns
+            Resultat.Retour  =
+                        (string)NoeudATraiter.Element(
+                            "return");
+
+
             return Resultat;
         } // methode
 
