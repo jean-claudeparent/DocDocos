@@ -15,6 +15,7 @@ namespace MokaDocosTest
         [TestMethod]
         public void GenererHTMLPetit()
         {
+            #region Declaration
             IO monIO = new IO();
             DocDocosDA monGenerateur =
                 new DocDocosDA();
@@ -40,7 +41,11 @@ namespace MokaDocosTest
             string FR = monIO.AjouterCheminFichier( 
                     monGenerateur.RepertoireSortie,
                     "JCUtilitaires.IO.AjouterCheminFichier1.html");
-                
+
+            #endregion Declaration
+
+            // assertion sur JCUtilitaires.IO.AjouterCheminFichier1.html
+            #region FichierMethode
 
             Assert.IsTrue(
                 File.Exists(FR),
@@ -57,8 +62,32 @@ namespace MokaDocosTest
                 "Ajoute un autre niveau à un path"),
                 "erreur Ajoute un autre niveau à un path Valeur=" +
                 Resultat);
-            
-            }
+
+            Assert.IsTrue(Resultat.Contains(
+                "<h2>Sommaire</h2>"),
+                "<h2>Sommaire</h2>");
+
+            Assert.IsTrue(Resultat.Contains(
+                "<h2>Retourne</h2>"),
+                "<h2>Retourne</h2>");
+
+            Assert.IsTrue(Resultat.Contains(
+                "<title>JCUtilitaires.IO.AjouterCheminFichier(System.String,System.String)</title>"),
+                "<title>JCUtilitaires.IO.AjouterCheminFichier(System.String,System.String)</title>");
+
+            Assert.IsTrue(Resultat.Contains(
+                "<h1>JCUtilitaires.IO.AjouterCheminFichier(System.String,System.String)</h1>"),
+                "<h1>JCUtilitaires.IO.AjouterCheminFichier(System.String,System.String)</h1>");
+
+            Assert.IsTrue(Resultat.Contains(
+                "Le chemin avec l'ajout avec le séparateur correct pour le système d'exploitation"),
+                "Le chemin avec l'ajout avec le séparateur correct pour le système d'exploitation");
+
+
+
+            #endregion FichierMethode
+
+        }
 
         [TestMethod]
         public void GenererHTMLGros()
@@ -147,7 +176,8 @@ namespace MokaDocosTest
 
         }
 
+        
 
 
-    } // class
+    } 
 }

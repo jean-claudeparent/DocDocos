@@ -177,7 +177,7 @@ namespace DocDocos
             // traiter la balise returns
             Resultat.Retour  =
                         (string)NoeudATraiter.Element(
-                            "return");
+                            "returns");
 
 
             return Resultat;
@@ -235,7 +235,12 @@ namespace DocDocos
             ItemATraiter.Information =
                 ItemATraiter.Information.Replace(
                     "{{Summary}}",
-                    ItemATraiter.Sommaire ); 
+                    ItemATraiter.Sommaire );
+            ItemATraiter.Information =
+                 HHêlper.AjouterRetour(
+                    ItemATraiter.Information,
+                    ItemATraiter.Retour);
+                
         }
 
         

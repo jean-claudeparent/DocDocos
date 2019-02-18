@@ -27,9 +27,11 @@ namespace DocDocos
                    new List<string>();
             Resultat.Add("{{ContenuLigne}}");
             Resultat.Add("{{ContenuCellule}}");
-            Resultat.Add("{{Rangee}}"); 
+            Resultat.Add("{{Rangee}}");
             Resultat.Add("{{Summary}}");
-            
+            Resultat.Add("{{Return}}");
+
+
             return Resultat; 
         }
 
@@ -37,6 +39,8 @@ namespace DocDocos
         /// <summary>
         /// Substitue des variables
         /// du html par les valeurs
+        /// en replaçant la balise de variable
+        /// pour une autre occurence
         /// </summary>
         /// <param name="HTNLGlobal">HTML qui contient les variables</param>
         /// <param name="IdentifiantVariable">Identifiant de la variables comme par exemple {{Rangee}}</param>
@@ -66,6 +70,7 @@ namespace DocDocos
                     IdentifiantVariable +
                     " doit être délimitée par {{ et }}"); 
         }
+
         /// <summary>
         /// Enlève les identifiants de variables
         /// restants dans le HTML
@@ -91,9 +96,31 @@ namespace DocDocos
         {
             return 
                 GabaritSummary() +
+                GabaritReturn() + 
                 GabaritTableau();
         }
         
+        internal string GabaritReturn()
+        {
+            return "<h2>Retourne</h2><p>{{Return}}</p>";
+
+        }
+
+        internal  string  AjouterRetour(
+            string HTML,
+            string Retour)
+        {
+            if (string.IsNullOrEmpty(Retour))
+                HTML = HTML.Replace(
+                    GabaritReturn(), "");
+            else
+                HTML = ConstruireHTML(HTML,
+                    "{{Return}}",
+                    EncodeHTML(Retour));
+
+            return HTML;
+        }
+
         /// <summary>
         /// Crée un hiperlien
         /// en html
@@ -128,7 +155,7 @@ namespace DocDocos
 
         private  String GabaritSummary()
         {
-            return "<p>{{Summary}}</p>";
+            return "<h2>Sommaire</h2><p>{{Summary}}</p>";
         }
 
         /// <summary>

@@ -32,7 +32,7 @@ namespace DocDocosTest
             "</summary>" + Environment.NewLine +
             "<param name=\"Chemin\">Chemin du répertoire auquel on ajoute un niveau.</param>" + Environment.NewLine +
             "<param name=\"Ajout\">Niveau à ajouter</param>" + Environment.NewLine +
-            "<return>Le chemin avec l'ajout avec le séparateur correct pour le système d'exploitation</return>" + Environment.NewLine +
+            "<returns>Le chemin avec l'ajout avec le séparateur correct pour le système d'exploitation</returns>" + Environment.NewLine +
             "</member> "; 
 
             XElement  XMLTest = 
