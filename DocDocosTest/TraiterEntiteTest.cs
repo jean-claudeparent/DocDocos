@@ -20,6 +20,7 @@ namespace DocDocosTest
         [TestMethod]
         public void ParametresParXMLTest()
         {
+            #region Initialisations
             DocDocosDA Generateur = new DocDocosDA();
             EntiteDocument monEntite = new EntiteDocument();
 
@@ -37,6 +38,8 @@ namespace DocDocosTest
 
             XElement  XMLTest = 
                  XElement.Parse(innerxmlTest);
+            #endregion Initialisations
+
             monEntite = 
                 Generateur.TraiterNoeud(XMLTest);
 
@@ -45,6 +48,11 @@ namespace DocDocosTest
                 monEntite.Sommaire );
             Assert.AreEqual("Le chemin avec l'ajout avec le séparateur correct pour le système d'exploitation",
                 monEntite.Retour);
+
+            Assert.AreEqual(2,
+                monEntite.Parametres.Count);
+            
+
         }
 
 

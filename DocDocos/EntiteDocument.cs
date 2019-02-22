@@ -21,6 +21,9 @@ namespace DocDocos
 
         internal   string NomFichier = "";
 
+        internal Dictionary<string, string> Parametres =
+            new Dictionary<string, string>();
+
 
 
         internal TypeEntiteDocument TypeEntite

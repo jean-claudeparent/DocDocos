@@ -179,16 +179,15 @@ namespace DocDocos
                         (string)NoeudATraiter.Element(
                             "returns");
 
+            // traiter les balises parameter
+            Resultat.Parametres = 
+                ExtraireParametres(NoeudATraiter);
+
 
             return Resultat;
         } // methode
 
-        /// <summary>
-        /// Insere l'information de contenu
-        /// dans chaque entree du dictionnaire
-        /// </summary>
-        ///Répartit lMinformation entre les noeuds
-        ///parent et enfants (selon les nibeaux)
+         
         private void TraiterDictionnaire()
         {
             EntiteDocument Temp = 
@@ -408,6 +407,25 @@ namespace DocDocos
              
         }
 
+
+        private Dictionary<string, string>
+            ExtraireParametres
+            (XElement PNoeudATraiter)
+        {
+            Dictionary<string, string> Resultat =
+                new Dictionary<string, string>();
+
+            
+            foreach (var param in PNoeudATraiter.Elements("param") )
+            {
+                Resultat.Add(param.Attribute("name").ToString() ,"" );
+
+            }
+            
+
+
+            return Resultat; 
+        }
 
 
     } // class
