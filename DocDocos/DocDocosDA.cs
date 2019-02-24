@@ -418,7 +418,8 @@ namespace DocDocos
             
             foreach (var param in PNoeudATraiter.Elements("param") )
             {
-                Resultat.Add(param.Attribute("name").ToString() ,"" );
+                Resultat.Add(param.Attribute("name").Value.ToString() ,
+                    param.Value);
 
             }
             

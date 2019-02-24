@@ -51,7 +51,30 @@ namespace DocDocosTest
 
             Assert.AreEqual(2,
                 monEntite.Parametres.Count);
-            
+            string Dbug = "";
+
+            // extraire toutes les clé  du dictionnaire
+            // pour les afficher dans le premier est
+            // en cas d'échec
+            foreach (var k in monEntite.Parametres.Keys)
+            {
+                Dbug += k.ToString() + ": ";
+            }
+
+            Assert.IsTrue(monEntite.Parametres
+                .ContainsKey("Chemin"),
+               Dbug);
+
+            Assert.IsTrue(monEntite.Parametres
+               .ContainsKey("Ajout"),
+              Dbug);
+
+            Assert.AreEqual("Chemin du répertoire auquel on ajoute un niveau.",
+                monEntite.Parametres["Chemin"]);
+
+            Assert.AreEqual("Niveau à ajouter",
+                monEntite.Parametres["Ajout"]);
+
 
         }
 
