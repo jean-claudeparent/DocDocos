@@ -231,6 +231,8 @@ namespace DocDocos
                 ItemATraiter.NomFichier = NormaliserNomFichier(
                     ItemATraiter.Nom);
             // Construire le html
+            // traiter sommaire
+
             ItemATraiter.Information =
                 ItemATraiter.Information.Replace(
                     "{{Summary}}",
@@ -239,7 +241,12 @@ namespace DocDocos
                  HHêlper.AjouterRetour(
                     ItemATraiter.Information,
                     ItemATraiter.Retour);
-                
+
+            ItemATraiter.Information =
+                 HHêlper.AjouterParms(
+                    ItemATraiter.Information,
+                    ItemATraiter.Parametres);
+
         }
 
         

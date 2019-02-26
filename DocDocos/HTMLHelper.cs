@@ -30,7 +30,7 @@ namespace DocDocos
             Resultat.Add("{{Rangee}}");
             Resultat.Add("{{Summary}}");
             Resultat.Add("{{Return}}");
-
+            Resultat.Add("{{RangeeParms}}");
 
             return Resultat; 
         }
@@ -79,7 +79,7 @@ namespace DocDocos
         internal  string  MenageHTNL(
             string HTML)
         {
-            string  Resultat = HTML;
+            string  Resultat = HTML.Replace(GabaritSummary(),"") ;
             foreach(string IDVariable in Variables())
             {
                 Resultat = Resultat.Replace(
@@ -96,6 +96,7 @@ namespace DocDocos
         {
             return 
                 GabaritSummary() +
+                GabaritParms() +
                 GabaritReturn() + 
                 GabaritTableau();
         }
@@ -106,7 +107,15 @@ namespace DocDocos
 
         }
 
-        internal  string  AjouterRetour(
+        internal string GabaritParms()
+        {
+            return "<h2>Paramètres</h2>" +
+                "<table border=\"1\">{{RangeeParms}}</table>";
+
+        }
+
+
+        internal string  AjouterRetour(
             string HTML,
             string Retour)
         {
@@ -137,7 +146,7 @@ namespace DocDocos
         }
 
     /// <summary>
-    /// Retourne legabatit pour
+    /// Retourne le gabarit pour
     /// le traitement d'une ligne de tableau
     /// </summary>
     /// <returns></returns>
@@ -248,6 +257,36 @@ namespace DocDocos
                 GabaritRangee().Replace(
                 "{{ContenuLigne}}", Resultat); 
         } // methode
+
+        internal string AjouterParms(
+                    string HTML,
+                    Dictionary<string , string > DictParam )
+        {
+            if (DictParam.Count == 0)
+                HTML = HTML.Replace(GabaritParms(),"");
+            else
+            {
+                String RangeesParms = "";
+
+                foreach(var ListeParm in
+                    DictParam.Keys )
+                {
+                    RangeesParms +=
+                        CreerRangee(
+                            EncodeHTML( ListeParm),
+                            EncodeHTML(DictParam[ListeParm].ToString()) );
+                }
+                HTML = ConstruireHTML(
+            HTML,
+            "{{RangeeParms}}",
+            RangeesParms);
+
+
+
+            }
+            return HTML; 
+        }
+        
 
     } //class
 }

@@ -13,8 +13,11 @@ namespace MokaDocosTest
     public class UGenerer
     {
         [TestMethod]
-        public void GenererHTMLPetit()
+        public void GenererHTMLPetitSite()
         {
+            ///Générer un site avec peu de pages
+            ///mais c'est ici que l'on assert le
+            ///contenu des pages générées
             #region Declaration
             IO monIO = new IO();
             DocDocosDA monGenerateur =
