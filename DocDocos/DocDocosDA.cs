@@ -234,9 +234,10 @@ namespace DocDocos
             // traiter sommaire
 
             ItemATraiter.Information =
-                ItemATraiter.Information.Replace(
-                    "{{Summary}}",
-                    ItemATraiter.Sommaire );
+                HHêlper.AjouterSommmaire(
+                    ItemATraiter.Information,
+                    ItemATraiter.Sommaire);
+
             ItemATraiter.Information =
                  HHêlper.AjouterRetour(
                     ItemATraiter.Information,

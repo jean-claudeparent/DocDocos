@@ -21,7 +21,7 @@ namespace DocDocos
         /// substitution utilisées
         /// </summary>
         /// <returns></returns>
-        public   static List<string> Variables()
+        internal  static List<string> Variables()
         {
              List<string> Resultat =
                    new List<string>();
@@ -87,6 +87,7 @@ namespace DocDocos
             }
             return Resultat;
         }
+
         /// <summary>
         /// Retourne le gabarit affichant
         /// l'infomration dans lapage.
@@ -286,7 +287,21 @@ namespace DocDocos
             }
             return HTML; 
         }
-        
+
+        internal string AjouterSommmaire(
+            string HTMLGlobal,
+            string Sommaire)
+        {
+            if (string.IsNullOrEmpty(Sommaire))
+                return HTMLGlobal;
+            else
+            {
+                return ConstruireHTML(HTMLGlobal , 
+                    "{{Summary}}",
+                    Sommaire);
+            }
+        }
+
 
     } //class
 }

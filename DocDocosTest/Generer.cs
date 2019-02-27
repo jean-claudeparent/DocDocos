@@ -10,7 +10,7 @@ using System.Xml.Linq;
 namespace MokaDocosTest
 {
     [TestClass]
-    public class UGenerer
+    public class Generer
     {
         [TestMethod]
         public void GenererHTMLPetitSite()
@@ -85,6 +85,21 @@ namespace MokaDocosTest
             Assert.IsTrue(Resultat.Contains(
                 "Le chemin avec l'ajout avec le séparateur correct pour le système d'exploitation"),
                 "Le chemin avec l'ajout avec le séparateur correct pour le système d'exploitation");
+
+            Assert.IsTrue(Resultat.Contains(
+                "<h2>Paramètres</h2>"),
+                "<h2>Paramètres</h2>");
+
+
+            Assert.IsTrue(Resultat.Contains(
+                "<h2>Paramètres</h2>"),
+                "<h2>Paramètres</h2>");
+
+            Assert.IsTrue(Resultat.Contains(
+                "Chemin du répertoire auquel on ajoute un niveau"),
+                "Chemin du répertoire auquel on ajoute un niveau");
+
+            
 
 
 
