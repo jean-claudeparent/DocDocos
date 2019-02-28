@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>org.jcassertion.DocDocos</id>
-    <version>0.3.0</version>
+    <version>1.0.0</version>
     <title>DocDocos Générateur de documentation</title>
     <authors>Jean-Claude Parent</authors>
     <owners>jean-claude.parent</owners>
@@ -10,19 +10,20 @@
     <projectUrl>https://docdocos.jcassertion.org/</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Une composante pour créer un site web simple à partir du fichier xml de documentation généré par Visual Studio.
-    Pour l'instant la composante crée une page web pour chaque membre du fichier de documentation. Elle créer ensuite les pages manquantes
+    La composante crée une page web pour chaque membre du fichier de documentation. Elle créer ensuite les pages manquantes
     pour qu'une vue hierarchique des membres soit possible.
-    Elle met le summarydans les pages des membres qui en ont un.
+    Elle met le contenu de la balise summary et le contenu  de certaines autres balises du fichier xml dedocumentation 
+    dans les pages générées.
     Enfin elle créer des hyper liens entre les pages. 
     
     Implémentation en .net framework 4.5 et net core 2.1.
     </description>
     <summary>Une composante pour créer un site web simple à partir du fichier xml de documentation généré par Visual Studio</summary>
-    <releaseNotes>Ratonalisation des méthodes publiques.</releaseNotes>
+    <releaseNotes>Rationalisation des méthodes publiques. Traitement des balises "returns" et "param"</releaseNotes>
     <copyright>Copyright 2018,2019 Jean-Claude Parent</copyright>
     <language>fr-CA</language>
     
-    <tags>Génération documentation html xml VS</tags>
+    <tags>Génération documentation html xml Visual Studio</tags>
   </metadata>
   <files>
     <file src="lib\net45\**" target="lib\net45" />
